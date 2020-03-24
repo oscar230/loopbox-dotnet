@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Loopbox!" Height="172" Width="250" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Background="Black" Foreground="{x:Null}">
-    <Grid Height="471" VerticalAlignment="Top">
-        <Rectangle Fill="#FF323232" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="250" Margin="0,9,0,0"/>
-        <Label x:Name="configStatusText" Content="Label" HorizontalAlignment="Left" Margin="85,10,0,0" VerticalAlignment="Top" Foreground="#FF909090" FontSize="14" Height="30" Width="149"/>
-        <Button x:Name="loadConfig" Content="Button" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="#FF191919" FontSize="14" Foreground="#FF909090"/>
-
-        <Rectangle Fill="#FF323232" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="244" Margin="0,46,0,0"/>
-        <Rectangle Fill="#FF323232" HorizontalAlignment="Left" Height="32" Stroke="Black" VerticalAlignment="Top" Width="244" Margin="0,83,0,0"/>
-        <Label x:Name="configViewText" Content="Label" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" Foreground="#FF909090" FontSize="14" Height="30" Width="149"/>
+        Title="Loopbox!" Height="249.333" Width="250" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Background="Black" Foreground="{x:Null}">
+    <Grid Height="219" VerticalAlignment="Top">
+        <Button x:Name="btnLoadConfig" Width="224" Height="30" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Margin="10,10,10,179">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Load collection" FontSize="16"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnViewConfig" Width="224" Height="30" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Margin="10,45,10,144">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="View collection" FontSize="16"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>
