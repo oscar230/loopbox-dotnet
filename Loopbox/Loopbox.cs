@@ -23,8 +23,9 @@ namespace Loopbox
                 Debug.WriteLine("Succeeded loading config from: " + filepath);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
                 Debug.WriteLine("Error loading config from " + filepath);
                 config = null;
                 return false;
