@@ -12,27 +12,43 @@ namespace Loopbox
     public class Config
     {
         //
-        // Structs to replicate RekordBox XML config
+        // Data structures to replicate RekordBox XML config
         //
-        private struct Dj_Playlists
+        private class Library // Called Dj_Playlists in XML
         {
             string version;
             Product product;
             Collection collection;
             Playlists playlists;
+
+            public Library(XmlElement element)
+            {
+                ElementDebug(element);
+                version = element.GetAttribute("Version");
+            }
         }
-        private struct Product
+        private class Product
         {
             string name;
             string version;
             string company;
+
+            public Product(XmlElement element)
+            {
+                ElementDebug(element);
+            }
         }
-        private struct Collection
+        private class Collection
         {
             int entries;
             List<Track> tracks;
+
+            public Collection(XmlElement element)
+            {
+                ElementDebug(element);
+            }
         }
-        private struct Track
+        private class Track
         {
             int trackId; // RekordBox index
             string name;
@@ -61,16 +77,26 @@ namespace Loopbox
             string mix;
             List<Tempo> tempos;
             List<Position_Mark> position_Marks;
+
+            public Track(XmlElement element)
+            {
+                ElementDebug(element);
+            }
         }
-        private struct Tempo
+        private class Tempo
         {
             float inizio; // Beginning (Italian)
             float bpm;
             string metro; // Meter (Italian)
             int battito; // Beat (Italian)
+
+            public Tempo(XmlElement element)
+            {
+                ElementDebug(element);
+            }
         }
         // Cues
-        private struct Position_Mark
+        private class Position_Mark
         {
             string name;
             int type;
@@ -80,13 +106,23 @@ namespace Loopbox
             int red; // Display color for interfaces
             int green; // Display color for interfaces
             int blue; // Display color for interfaces
+
+            public Position_Mark(XmlElement element)
+            {
+                ElementDebug(element);
+            }
         }
-        private struct Playlists
+        private class Playlists
         {
             List<Node> nodes; // Top of node tree is name=ROOT
+
+            public Playlists(XmlElement element)
+            {
+                ElementDebug(element);
+            }
         }
         // Nodes in playlists
-        private struct Node
+        private class Node
         {
             int type; // 0 directory, 1 playlist
             string name;
@@ -94,20 +130,25 @@ namespace Loopbox
             int entries; // Amount of tracks if type is 1
             List<Node> nodes;
             List<Track> tracks; //Tracks by TrackId
+
+            public Node(XmlElement element)
+            {
+                ElementDebug(element);
+            }
         }
 
         //
         // Config parameters
         //
-        private XmlDocument document; // The config in xml format
-        private Dj_Playlists dj; // The config
+        private Library library; // The config
 
         // Constructor
         public Config(string filepath)
         {
-            Debug.WriteLine("Config: " + filepath);
+            XmlDocument document;
             try
             {
+                document = new XmlDocument();
                 document.Load(filepath);
             }
             catch (Exception e)
@@ -115,6 +156,13 @@ namespace Loopbox
                 Debug.WriteLine(e);
                 throw;
             }
+            ElementDebug(document.DocumentElement);
+            //this.library = new Library(document.DocumentElement);
+        }
+
+        public static void ElementDebug(XmlElement element)
+        {
+            Debug.WriteLine("XML at " + element.Name + " parent of " + element.ChildNodes.Count() + " nodes.");
         }
     }
 }

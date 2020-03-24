@@ -5,31 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Loopbox" Height="371" Width="200" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+        Title="Loopbox" Height="390" Width="250" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <StackPanel>
-            <TextBlock Text="Loopbox" FontSize="16" Foreground="#FF909090" TextAlignment="Center" TextDecorations="{x:Null}"/>
+            <TextBlock Text="Loopbox" FontSize="22" Foreground="#FF909090" TextAlignment="Center" TextDecorations="{x:Null}" FontWeight="Bold"/>
             <Button x:Name="btnLoad" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnLoad_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Load Collection" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnStatistics" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+            <Button x:Name="btnStatistics" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnStatistics_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="View Statistics" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnMeta" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+            <Button x:Name="btnMeta" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMeta_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Find Metainfo" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnAlbum" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+            <Button x:Name="btnAlbum" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnAlbum_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Find Album Art" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnExport" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+            <Button x:Name="btnExport" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExport_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Sync Manager" FontSize="16"/>
                 </StackPanel>
@@ -46,7 +46,7 @@
                 </Hyperlink>
             </TextBlock>
             <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
-                This has no affiliation with Pioneer.
+                who has no affiliation with Pioneer.
             </TextBlock>
             <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
                 Buy Rekordbox DJ at

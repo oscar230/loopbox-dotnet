@@ -53,6 +53,26 @@ namespace Loopbox_GUI
             }
         }
 
+        private void btnStatistics_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMeta_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAlbum_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
