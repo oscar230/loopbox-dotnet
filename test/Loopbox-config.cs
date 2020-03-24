@@ -1,14 +1,16 @@
 ﻿using System;
+using Loopbox;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace test
 {
     [TestClass]
-    public class UnitTest1
+    public class TestConfig
     {
         [TestMethod]
-        public void Initiate()
+        public void LoadConfigNoFile()
         {
+            Config config = new Config("");
         }
     }
 }

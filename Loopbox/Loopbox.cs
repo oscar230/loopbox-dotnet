@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Loopbox
 {
-    public class Loopbox
+    public class LoopboxLib
     {
+        string
+        public LoopboxLib()
+        {
+
+        }
     }
 }
