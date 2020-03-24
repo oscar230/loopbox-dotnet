@@ -79,9 +79,9 @@ namespace Loopbox
             [XmlAttribute("Year")]
             public int year;
             [XmlAttribute("AverageBpm")]
-            public Single averagebpm;
+            public decimal averagebpm;
             [XmlAttribute("DateAdded")]
-            public DateTime dateadded;
+            public TimeSpan dateadded;
             [XmlAttribute("BitRate")]
             public int bitrate;
             [XmlAttribute("SampleRate")]
@@ -114,9 +114,9 @@ namespace Loopbox
         public class Tempo
         {
             [XmlAttribute("Inizio")]
-            public string inizio; // Beginning (Italian)
+            public decimal inizio; // Beginning (Italian)
             [XmlAttribute("Bpm")]
-            public string bpm;
+            public decimal bpm;
             [XmlAttribute("Metro")]
             public string metro; // Meter (Italian)
             [XmlAttribute("Battito")]
@@ -132,9 +132,9 @@ namespace Loopbox
             [XmlAttribute("Type")]
             public int type;
             [XmlAttribute("Start")]
-            public string start;
+            public decimal start;
             [XmlAttribute("End")]
-            public string end; // For loops
+            public decimal end; // For loops
             [XmlAttribute("Num")]
             public int num; // -1 for cue else hot cue
             [XmlAttribute("Red")]
@@ -150,13 +150,13 @@ namespace Loopbox
         public class Playlists
         {
             [XmlElement("NODE")]
-            public List<PlaylistNode> playlistNodes; // Top of node tree is name=ROOT
+            public List<Node> playlistNodes; // Top of node tree is name=ROOT
         }
 
         // Nodes in playlists
         [Serializable]
         [XmlRoot("NODE")]
-        public class PlaylistNode
+        public class Node
         {
             [XmlAttribute("Type")]
             public int type; // 0 directory, 1 playlist
@@ -169,7 +169,7 @@ namespace Loopbox
             [XmlAttribute("KeyType")]
             public int keyType;
             [XmlElement("NODE")]
-            public List<PlaylistNode> nodes;
+            public List<Node> nodes;
             [XmlElement("TRACK")]
             public List<Track> tracks; //Tracks by TrackId
         }
