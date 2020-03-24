@@ -103,7 +103,7 @@ namespace Loopbox
         private Dj_Playlists dj; // The config
 
         // Constructor
-        Config(string filepath)
+        public Config(string filepath)
         {
             Debug.WriteLine("Config: " + filepath);
             try

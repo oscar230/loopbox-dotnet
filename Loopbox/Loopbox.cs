@@ -8,7 +8,6 @@ namespace Loopbox
 {
     public class LoopboxLib
     {
-        string
         public LoopboxLib()
         {
 
