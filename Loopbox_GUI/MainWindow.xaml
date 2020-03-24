@@ -5,17 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Loopbox!" Height="249.333" Width="250" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Background="Black" Foreground="{x:Null}">
-    <Grid Height="219" VerticalAlignment="Top">
-        <Button x:Name="btnLoadConfig" Width="224" Height="30" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Margin="10,10,10,179">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Load collection" FontSize="16"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnViewConfig" Width="224" Height="30" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Margin="10,45,10,144">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="View collection" FontSize="16"/>
-            </StackPanel>
-        </Button>
+        Title="Loopbox" Height="371" Width="200" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Loopbox" FontSize="16" Foreground="#FF909090" TextAlignment="Center" TextDecorations="{x:Null}"/>
+            <Button x:Name="btnLoad" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnLoad_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Load Collection" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnStatistics" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View Statistics" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnMeta" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Find Metainfo" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnAlbum" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Find Album Art" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnExport" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sync Manager" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Exit" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
+                Made in Sweden by
+                <Hyperlink x:Name="hyperlinkCredits" NavigateUri="https://oscaande.se/" Click="hyperlinkCredits_Click">
+                    Oscar Andersson
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
+                This has no affiliation with Pioneer.
+            </TextBlock>
+            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
+                Buy Rekordbox DJ at
+                <Hyperlink x:Name="hyperlinkRekordbox" NavigateUri="https://rekordbox.com/" Click="hyperlinkRekordbox_Click">
+                    rekordbox.com
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

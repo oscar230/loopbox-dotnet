@@ -1,4 +1,5 @@
 ﻿using Loopbox;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,26 @@ namespace Loopbox_GUI
         {
             loopbox = new LoopboxLib();
             InitializeComponent();
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void hyperlinkCredits_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(hyperlinkCredits.NavigateUri.ToString());
+        }
+
+        private void hyperlinkRekordbox_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(hyperlinkRekordbox.NavigateUri.ToString());
         }
     }
 }
