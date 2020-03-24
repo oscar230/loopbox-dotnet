@@ -14,7 +14,7 @@ namespace Loopbox
         //
         // Data structures to replicate RekordBox XML config
         //
-        private class Library // Called Dj_Playlists in XML
+        public class Library // Called Dj_Playlists in XML
         {
             string version;
             Product product;
@@ -31,9 +31,10 @@ namespace Loopbox
                 playlists = new Playlists(node.SelectSingleNode("PLAYLISTS"));
             }
 
+            public List<Track> GetTracks() => collection.tracks;
             public override string ToString() => "Library version " + version;
         }
-        private class Product
+        public class Product
         {
             string name;
             string version;
@@ -50,10 +51,10 @@ namespace Loopbox
 
             public override string ToString() => "Product " + name + " version " + version + " by " + company;
         }
-        private class Collection
+        public class Collection
         {
             int entries;
-            List<Track> tracks;
+            public List<Track> tracks;
 
             public Collection(XmlNode node)
             {
@@ -68,7 +69,7 @@ namespace Loopbox
 
             public override string ToString() => "Collection containing " + entries + " entries.";
         }
-        private class Track
+        public class Track
         {
             int trackId; // RekordBox index
             string name;
@@ -139,7 +140,7 @@ namespace Loopbox
 
             public override string ToString() => "Track #" + trackId + " - " + name;
         }
-        private class Tempo
+        public class Tempo
         {
             string inizio; // Beginning (Italian)
             string bpm;
@@ -159,7 +160,7 @@ namespace Loopbox
             public override string ToString() => "Tempo starts at " + inizio + " with a bpm of " + bpm;
         }
         // Cues
-        private class Position_Mark
+        public class Position_Mark
         {
             string name;
             int type;
@@ -188,7 +189,7 @@ namespace Loopbox
 
             public override string ToString() => "Position mark at " + start;
         }
-        private class Playlists
+        public class Playlists
         {
             List<PlaylistNode> playlistNodes; // Top of node tree is name=ROOT
 
@@ -205,7 +206,7 @@ namespace Loopbox
             public override string ToString() => "Playlists containing " + playlistNodes.Count + " playlist nodes.";
         }
         // Nodes in playlists
-        private class PlaylistNode
+        public class PlaylistNode
         {
             int type; // 0 directory, 1 playlist
             string name;
@@ -257,7 +258,9 @@ namespace Loopbox
             this.library = new Library(document.DocumentElement);
         }
 
-        public static void ElementDebug(XmlNode node)
+        public Library Get() => library;
+
+        private static void ElementDebug(XmlNode node)
         {
             Debug.WriteLine("XML at " + node.Name + " parent of " + node.ChildNodes.Count + " nodes.");
             //foreach (XmlNode child in node.ChildNodes)
@@ -265,7 +268,7 @@ namespace Loopbox
         }
 
         //Source: https://stackoverflow.com/questions/11465191/how-to-match-two-paths-pointing-to-the-same-file/11465376#11465376
-        public static string PioneerFilepathParser(string filepath)
+        private static string PioneerFilepathParser(string filepath)
         {
             return filepath.Replace("file://localhost/", "").Replace("%20", " ").Replace("/", @"\").Replace(@"\\", @"\");
         }
