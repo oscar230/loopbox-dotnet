@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Loopbox;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,10 @@ namespace Loopbox_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        LoopboxLib loopbox;
         public MainWindow()
         {
+            loopbox = new LoopboxLib();
             InitializeComponent();
         }
     }

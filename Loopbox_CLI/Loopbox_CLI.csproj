@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Loopbox\Loopbox.csproj">
+      <Project>{d6001a8b-0804-4656-828a-855aa03bf2fd}</Project>
+      <Name>Loopbox</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
