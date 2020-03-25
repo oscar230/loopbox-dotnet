@@ -54,6 +54,8 @@ namespace Loopbox
         {
             [XmlAttribute("TrackID")]
             public int trackId; // RekordBox index
+            [XmlAttribute("Key")]
+            public int key = int.MinValue; // Same as trackId, to represent track in playlists
             [XmlAttribute("Name")]
             public string name;
             [XmlAttribute("Artist")]
@@ -107,6 +109,14 @@ namespace Loopbox
             public List<Tempo> tempos;
             [XmlElement("POSITION_MARK")]
             public List<Position_Mark> position_Marks;
+
+            public Track Lookup(Collection collection)
+            {
+                if (key == int.MinValue)
+                    return this; //Is already a track in collection, nothing to do
+                else
+                    return collection.tracks.Find(t => t.trackId.Equals(this.key));
+            }
         }
 
         [Serializable]
