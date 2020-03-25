@@ -20,9 +20,15 @@ namespace Loopbox_GUI
     /// </summary>
     public partial class StatisticsWindow : Window
     {
+        LoopboxLib loopbox;
         public StatisticsWindow(LoopboxLib loopbox)
         {
+            this.loopbox = loopbox;
             InitializeComponent();
+        }
+
+        private void SetupText()
+        {
             textTrackCount.Text = "Total number of tracks: " + loopbox.GetTracksCount();
             textPlaylistCount.Text = "Total number of playlists: " + loopbox.GetAllPlaylistsCount();
             textMissingCount.Text = "Number of tracks missing: " + loopbox.GetTracksNotExistsCount();
@@ -46,5 +52,7 @@ namespace Loopbox_GUI
         {
 
         }
+
+        private void btnViewAllTracks_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracks(), "All tracks in library.").Show();
     }
 }

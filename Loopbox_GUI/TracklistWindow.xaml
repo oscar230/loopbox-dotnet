@@ -1,12 +1,62 @@
-﻿<Window x:Class="Loopbox_GUI.TracklistWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
+        xmlns:Loopbox="clr-namespace:Loopbox;assembly=Loopbox" x:Class="Loopbox_GUI.TracklistWindow"
         mc:Ignorable="d"
-        Title="TracklistWindow" Height="450" Width="800">
+        Title="Tracklist View" Height="400" Width="700" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+    <Window.Resources>
+        <Style  TargetType="{x:Type ListBoxItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="Black"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FF191919"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Loopbox Tracklist" FontSize="22" Foreground="#FF909090" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="textTitle" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackCount" FontSize="16" Foreground="#FF909090"/>
+            <Button x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Close" FontSize="16"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="  Artist" FontWeight="Bold" Foreground="#FF909090" FontSize="14"/>
+                <TextBlock Grid.Column="1" Text="  Title" FontWeight="Bold" Foreground="#FF909090" FontSize="14"/>
+            </Grid>
+            <ListBox x:Name="listBoxTracklist" AlternationCount="2" Background="{x:Null}" Height="380" SelectionChanged="listBoxTracklist_SelectionChanged" BorderBrush="{x:Null}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="250" />
+                                <ColumnDefinition Width="250" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Artist}" Foreground="#FF909090" FontSize="14"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="#FF909090" FontSize="14"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Window>

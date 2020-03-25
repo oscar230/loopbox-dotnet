@@ -110,6 +110,8 @@ namespace Loopbox
             [XmlElement("POSITION_MARK")]
             public List<Position_Mark> position_Marks;
 
+            private FileInfo file = null;
+
             public Track Lookup(Collection collection)
             {
                 if (key == int.MinValue)
@@ -117,6 +119,14 @@ namespace Loopbox
                 else
                     return collection.tracks.Find(t => t.trackId.Equals(this.key));
             }
+            private string ConvertLocation(string rekordboxurl) => new System.Uri(rekordboxurl.Replace(@"file://localhost/", @"file:///").Replace(@"#", @"%23").Replace(@".", @"%2E")).LocalPath;
+            private FileInfo GetFile() => file == null ? file = new FileInfo(ConvertLocation(location)): file;
+            public FileInfo File => GetFile();
+            public bool Exist => GetFile().Exists;
+            public string Artist => artist;
+            public string Name => name;
+            public int TrackId => trackId;
+            public override string ToString() => "Track: " + trackId + " " + name;
         }
 
         [Serializable]

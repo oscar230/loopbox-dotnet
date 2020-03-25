@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,15 @@ namespace Loopbox_GUI
     public partial class TracklistWindow : Window
     {
         List<Track> tracks;
-        public TracklistWindow(List<Track> tracks)
+        public TracklistWindow(List<Track> tracks, string title)
         {
             this.tracks = tracks;
             InitializeComponent();
+            textTitle.Text = title;
+            listBoxTracklist.ItemsSource = tracks;
+            textTrackCount.Text = "Tracks shown: " + tracks.Count;
         }
+        private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
+        private void listBoxTracklist_SelectionChanged(object sender, SelectionChangedEventArgs e) => new TrackWindow(tracks.Find(t => t.trackId.Equals((listBoxTracklist.SelectedItem as Track).trackId))).Show();
     }
 }

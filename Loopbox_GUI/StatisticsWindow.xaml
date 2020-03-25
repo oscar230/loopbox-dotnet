@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Loopbox" Height="390" Width="700" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+        Title="Statistics View" Height="390" Width="700" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -15,19 +15,9 @@
 
         <StackPanel Grid.Column="0">
             <TextBlock Text="Loopbox Statistics" FontSize="22" Foreground="#FF909090" TextAlignment="Center" FontWeight="Bold"/>
-            <Button Grid.Column="0" Grid.ColumnSpan="1" x:Name="btnMissing" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMissing_Click">
+            <Button Grid.Column="0" Grid.ColumnSpan="2" x:Name="btnViewAllTracks" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnViewAllTracks_Click">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Scan for tracks missing file" FontSize="16"/>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="0" Grid.ColumnSpan="1" x:Name="btnQuality" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnQuality_Click">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Scan for low quality tracks" FontSize="16"/>
-                </StackPanel>
-            </Button>
-            <Button Grid.Column="0" Grid.ColumnSpan="1" x:Name="btnNoPlaylist" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnNoPlaylist_Click">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Scan tracks not in any playlist" FontSize="16"/>
+                    <TextBlock Text="View all tracks" FontSize="16"/>
                 </StackPanel>
             </Button>
             <Button Grid.Column="0" Grid.ColumnSpan="2" x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">

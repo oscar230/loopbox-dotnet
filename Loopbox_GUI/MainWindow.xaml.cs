@@ -29,6 +29,10 @@ namespace Loopbox_GUI
             loopbox = new LoopboxLib();
             InitializeComponent();
             CheckButtonsEnabled();
+#if DEBUG
+            loopbox.Load(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\test.xml");
+            CheckButtonsEnabled();
+#endif
         }
 
         private void CheckButtonsEnabled()
@@ -38,8 +42,9 @@ namespace Loopbox_GUI
             btnLoad.IsEnabled = !loopbox.IsLoaded();
             btnStatistics.IsEnabled = loopbox.IsLoaded();
             btnMeta.IsEnabled = loopbox.IsLoaded();
+            btnViewAllTracks.IsEnabled = loopbox.IsLoaded();
         }
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        private void LoadConfig()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
@@ -62,6 +67,7 @@ namespace Loopbox_GUI
             }
             CheckButtonsEnabled();
         }
+        private void btnLoad_Click(object sender, RoutedEventArgs e) => LoadConfig();
         private void btnStatistics_Click(object sender, RoutedEventArgs e) => new StatisticsWindow(loopbox).Show();
         private void btnMeta_Click(object sender, RoutedEventArgs e) => Close();
         private void btnAlbum_Click(object sender, RoutedEventArgs e) => Close();
@@ -71,5 +77,6 @@ namespace Loopbox_GUI
         private void hyperlinkRekordbox_Click(object sender, RoutedEventArgs e) => HyperLinkRedirect(hyperlinkRekordbox.NavigateUri.ToString());
         private void HyperLinkRedirect(Hyperlink hyperlink) => HyperLinkRedirect(hyperlink.NavigateUri.ToString());
         private void HyperLinkRedirect(string url) => System.Diagnostics.Process.Start(url);
+        private void btnViewAllTracks_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracks(), "All tracks in library.").Show();
     }
 }

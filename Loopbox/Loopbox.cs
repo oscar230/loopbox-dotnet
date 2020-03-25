@@ -35,7 +35,6 @@ namespace Loopbox
                 return false;
             }
         }
-        private string ConvertLocation(string rekordboxurl) => new System.Uri(rekordboxurl.Replace(@"file://localhost/", @"file:///").Replace(@"#", @"%23").Replace(@".", @"%2E")).LocalPath;
         public bool IsLoaded() => loaded;
         public Library GetLibrary() => config.Get();
         public Collection GetCollection() => GetLibrary().collection;
@@ -61,11 +60,8 @@ namespace Loopbox
         {
             var tracks = new List<Track>();
             foreach (Track t in GetTracks())
-                if (!new FileInfo(ConvertLocation(t.location)).Exists)
-                {
+                if (!t.Exist)
                     tracks.Add(t);
-                    Debug.WriteLine("Did not find file at: " + new FileInfo(ConvertLocation(t.location)).FullName);
-                }
             return tracks;
         }
         public int GetTracksNotExistsCount() => GetTracksNotExists().Count();

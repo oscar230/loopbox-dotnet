@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Loopbox" Height="390" Width="250" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+        Title="Loopbox" Height="440" Width="250" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <StackPanel>
             <TextBlock Text="Loopbox" FontSize="22" Foreground="#FF909090" TextAlignment="Center" TextDecorations="{x:Null}" FontWeight="Bold"/>
             <Button x:Name="btnLoad" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnLoad_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Load Collection" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnViewAllTracks" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnViewAllTracks_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View all tracks" FontSize="16"/>
                 </StackPanel>
             </Button>
             <Button x:Name="btnStatistics" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnStatistics_Click">

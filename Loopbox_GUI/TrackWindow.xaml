@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="TrackWindow" Height="450" Width="800">
+        Title="Track View" Height="400" Width="700" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="Loopbox Track" FontSize="22" Foreground="#FF909090" TextAlignment="Center" FontWeight="Bold"/>
+            <Button x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Close" FontSize="16"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Image Grid.Column="0" Grid.Row="1" Source="images/noimage.png"></Image>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBlock x:Name="textTrackName" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackArtist" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackExists" FontSize="16" Foreground="#FF909090"/>
+        </StackPanel>
     </Grid>
 </Window>

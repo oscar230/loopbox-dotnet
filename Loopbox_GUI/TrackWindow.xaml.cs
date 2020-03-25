@@ -25,6 +25,14 @@ namespace Loopbox_GUI
         {
             this.track = track;
             InitializeComponent();
+            SetupText();
         }
+        private void SetupText()
+        {
+            textTrackName.Text = "Title: " + track.name;
+            textTrackArtist.Text = "Artist: " + track.artist;
+            textTrackArtist.Text = "File exists: " + track.artist;
+        }
+        private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
     }
 }
