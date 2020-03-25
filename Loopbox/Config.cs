@@ -54,57 +54,57 @@ namespace Loopbox
         public class Track
         {
             [XmlAttribute("TrackID")]
-            private int trackId; // RekordBox index
+            public int trackId; // RekordBox index
             [XmlAttribute("Key")]
-            private int key = int.MinValue; // Same as trackId, to represent track in playlists
+            public int key = int.MinValue; // Same as trackId, to represent track in playlists
             [XmlAttribute("Name")]
-            private string name;
+            public string name;
             [XmlAttribute("Artist")]
-            private string artist;
+            public string artist;
             [XmlAttribute("Composer")]
-            private string composer;
+            public string composer;
             [XmlAttribute("Album")]
-            private string album;
+            public string album;
             [XmlAttribute("Grouping")]
-            private string grouping;
+            public string grouping;
             [XmlAttribute("Genre")]
-            private string genre;
+            public string genre;
             [XmlAttribute("Kind")]
-            private string kind;
+            public string kind;
             [XmlAttribute("Size")]
-            private int size;
+            public int size;
             [XmlAttribute("TotalTime")]
-            private int totaltime;
+            public int totaltime;
             [XmlAttribute("DiscNumber")]
-            private int discnumber;
+            public int discnumber;
             [XmlAttribute("TrackNumber")]
-            private int tracknumber;
+            public int tracknumber;
             [XmlAttribute("Year")]
-            private int year;
+            public int year;
             [XmlAttribute("AverageBpm")]
-            private decimal averagebpm;
+            public decimal averagebpm;
             [XmlAttribute("DateAdded")]
-            private string dateadded;
+            public string dateadded;
             [XmlAttribute("BitRate")]
-            private int bitrate;
+            public int bitrate;
             [XmlAttribute("SampleRate")]
-            private int samplerate;
+            public int samplerate;
             [XmlAttribute("Comments")]
-            private string comments;
+            public string comments;
             [XmlAttribute("PlayCount")]
-            private int playcount;
+            public int playcount;
             [XmlAttribute("Rating")]
-            private int rating;
+            public int rating;
             [XmlAttribute("Location")]
-            private string location;
+            public string location;
             [XmlAttribute("Remixer")]
-            private string remixer;
+            public string remixer;
             [XmlAttribute("Tonality")]
-            private string tonality;
+            public string tonality;
             [XmlAttribute("Label")]
-            private string label;
+            public string label;
             [XmlAttribute("Mix")]
-            private string mix;
+            public string mix;
 
             [XmlElement("TEMPO")]
             public List<Tempo> tempos;
@@ -138,7 +138,7 @@ namespace Loopbox
             public int Size => size;
             public int Year => year;
             public float AverageBpm => (float)averagebpm;
-            public DateTime DateAdded => DateTime.Parse(dateadded);
+            public string DateAdded => dateadded;
             public int Bitrate => bitrate;
             public int Samplerate => samplerate;
             public string Comments => comments;

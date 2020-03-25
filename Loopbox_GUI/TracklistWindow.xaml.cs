@@ -31,6 +31,6 @@ namespace Loopbox_GUI
             textTrackCount.Text = "Tracks shown: " + tracks.Count;
         }
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
-        private void listBoxTracklist_SelectionChanged(object sender, SelectionChangedEventArgs e) => new TrackWindow(tracks.Find(t => t.trackId.Equals((listBoxTracklist.SelectedItem as Track).trackId))).Show();
+        private void listBoxTracklist_SelectionChanged(object sender, SelectionChangedEventArgs e) => new TrackWindow(tracks.Find(t => t.TrackId.Equals((listBoxTracklist.SelectedItem as Track).TrackId))).Show();
     }
 }
