@@ -81,7 +81,7 @@ namespace Loopbox
             [XmlAttribute("AverageBpm")]
             public decimal averagebpm;
             [XmlAttribute("DateAdded")]
-            public TimeSpan dateadded;
+            public string dateadded;
             [XmlAttribute("BitRate")]
             public int bitrate;
             [XmlAttribute("SampleRate")]
@@ -181,19 +181,22 @@ namespace Loopbox
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(Library));
-                using (TextReader reader = new FileInfo(filepath).OpenText())
-                {
-                    this.library = (Library)serializer.Deserialize(reader);
-                }
+                XmlSerializer deserializer = new XmlSerializer(typeof(Library));
+                TextReader reader = new StreamReader(filepath);
+                this.library = (Library)deserializer.Deserialize(reader);
+                reader.Close();
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e);
                 throw;
             }
+
+            this.library.ToString();
         }
 
         public Library Get() => library;
+        public List<Track> GetTracks() => library.collection.tracks;
+        public Track GetTrack(int trackId) => GetTracks().FindAll(t => t.trackId == trackId).FirstOrDefault<Track>();
     }
 }
