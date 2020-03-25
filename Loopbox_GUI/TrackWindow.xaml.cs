@@ -40,7 +40,7 @@ namespace Loopbox_GUI
             textTrackYear.Text = track.Year.ToString();
             btnMetaAlbumArt.IsEnabled = track.AlbumArtExists;
             if (track.AlbumArtExists)
-                imageTrack.Source = Media.ImageSourceFromBitmap(track.AlbumArt);
+                imageTrack.Source = track.AlbumArt;
             btnMeta.IsEnabled = !track.MetaComplete;
         }
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
