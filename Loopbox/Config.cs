@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Drawing;
+using System.Windows.Media;
 
 namespace Loopbox
 {
@@ -121,10 +122,11 @@ namespace Loopbox
                     return collection.tracks.Find(t => t.trackId.Equals(this.key));
             }
             private string ConvertLocation(string rekordboxurl) => new System.Uri(rekordboxurl.Replace(@"file://localhost/", @"file:///").Replace(@"#", @"%23").Replace(@".", @"%2E")).LocalPath;
-            private FileInfo GetFile() => file == null ? file = new FileInfo(Location): file;
+            private FileInfo GetFile() => file == null ? file = new FileInfo(Location) : file;
             public FileInfo File => GetFile();
-            public Bitmap AlbumArt => Meta.Image(Location);
-            public bool AlbumArtExists => Meta.Image(Location) == null ? false : true;
+            public string Location => ConvertLocation(location);
+            public ImageSource AlbumArt => Meta.GetAlbumArt(Location);
+            public bool AlbumArtExists => Meta.ImageExist(Location);
             public bool MetaComplete => string.IsNullOrEmpty(name) || string.IsNullOrEmpty(artist) || string.IsNullOrEmpty(genre) || string.IsNullOrEmpty(label) ? false : true;
             public bool Exist => GetFile().Exists;
             public string Artist => artist;
@@ -148,7 +150,6 @@ namespace Loopbox
             public string Tonality => tonality;
             public string Label => label;
             public string Mix => mix;
-            public string Location => ConvertLocation(location);
             public override string ToString() => "Track: " + trackId + " " + name;
         }
 
