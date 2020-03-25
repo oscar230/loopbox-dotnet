@@ -26,11 +26,15 @@ namespace Loopbox_GUI
         {
             this.tracks = tracks;
             InitializeComponent();
+            SearchClear();
             textTitle.Text = title;
-            listBoxTracklist.ItemsSource = tracks;
             textTrackCount.Text = "Tracks shown: " + tracks.Count;
         }
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
         private void listBoxTracklist_SelectionChanged(object sender, SelectionChangedEventArgs e) => new TrackWindow(tracks.Find(t => t.TrackId.Equals((listBoxTracklist.SelectedItem as Track).TrackId))).Show();
+        private void btnSearch_Click(object sender, RoutedEventArgs e) => listBoxTracklist.ItemsSource = Search(search.Text);
+        private void btnSearchClear_Click(object sender, RoutedEventArgs e) => SearchClear();
+        private List<Track> Search(string searchterm) => Loopbox.LoopboxLib.Search(tracks, searchterm);
+        private void SearchClear() => listBoxTracklist.ItemsSource = Search(string.Empty);
     }
 }
