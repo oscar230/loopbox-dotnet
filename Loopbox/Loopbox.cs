@@ -36,12 +36,7 @@ namespace Loopbox
             }
         }
 
-        private string ConvertLocation(string rekordboxurl)
-        {
-            var output = rekordboxurl.Replace(@"file://localhost/", string.Empty);
-            Debug.WriteLine(rekordboxurl + " ---> " + output);
-            return output;
-        }
+        private string ConvertLocation(string rekordboxurl) => @"\\?\" + rekordboxurl.Replace(@"file://localhost/", string.Empty);
         public bool IsLoaded() => loaded;
         public List<Track> GetTracks() => config.Get().collection.tracks;
         public int GetTracksCount() => config.Get().collection.entries;
