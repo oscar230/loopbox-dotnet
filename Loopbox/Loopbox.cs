@@ -37,8 +37,10 @@ namespace Loopbox
         }
         private string ConvertLocation(string rekordboxurl) => new System.Uri(rekordboxurl.Replace(@"file://localhost/", @"file:///").Replace(@"#", @"%23").Replace(@".", @"%2E")).LocalPath;
         public bool IsLoaded() => loaded;
-        public List<Track> GetTracks() => config.Get().collection.tracks;
-        public int GetTracksCount() => config.Get().collection.entries;
+        public Library GetLibrary() => config.Get();
+        public Collection GetCollection() => GetLibrary().collection;
+        public List<Track> GetTracks() => GetCollection().tracks;
+        public int GetTracksCount() => GetCollection().entries;
         public Track GetTrack(int trackId) => GetTracks().FindAll(t => t.trackId == trackId).FirstOrDefault<Track>();
         public Node GetPlaylistsRoot() => config.Get().playlists.playlistNodes.FirstOrDefault();
         public List<Node> GetAllPlaylists() => GetPlaylistsRoot().GetPlaylists();
@@ -46,7 +48,13 @@ namespace Loopbox
         public List<Node> GetAllDirectories() => GetPlaylistsRoot().GetDirectories();
         public List<Node> GetPlaylistByName(string name) => GetAllPlaylists().FindAll(p => p.name.Equals(name));
         public Node GetSinglePlaylistByName(string name) => GetPlaylistByName(name).FirstOrDefault();
-        public List<Track> GetTracksInPlaylist(Node node) => node.tracks;
+        public List<Track> GetTracksInPlaylist(Node node)
+        {
+            var tracks = new List<Track>();
+            foreach (Track track in node.tracks)
+                tracks.Add(track.Lookup(GetCollection()));
+            return tracks;
+        }
         public List<Track> GetTracksInPlaylistByName(string name) => GetSinglePlaylistByName(name).tracks;
         public bool GetTrackExists(int trackId) => new FileInfo(GetTrack(trackId).location).Exists;
         public List<Track> GetTracksNotExists()
@@ -69,7 +77,13 @@ namespace Loopbox
             return tracks.Distinct().ToList();
         }
         public int GetTracksInAnyPlaylistCount() => GetTracksInAnyPlaylist().Count();
-        public List<Track> GetTracksNotInAnyPlaylist() => GetTracks().FindAll(t1 => GetTracks().FindAll(t2 => t2.trackId == t1.trackId).Count == 0); // TODO make more effecient
+        public List<Track> GetTracksNotInAnyPlaylist()
+        {
+            var tracks = GetTracks();
+            foreach (Track track in GetTracksInAnyPlaylist())
+                tracks.Remove(track);
+            return tracks;
+        }
         public int GetTracksNotInAnyPlaylistCount() => GetTracksNotInAnyPlaylist().Count();
         public List<string> GetFileTypes() => GetTracks().Select(t => t.kind).Distinct().ToList();
         // TODO, least played/most played, track in bpm ranges, check quality by sample rate, get cue point with color in hex.
