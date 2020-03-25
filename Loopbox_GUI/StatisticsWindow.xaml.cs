@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Loopbox;
 
 namespace Loopbox_GUI
 {
@@ -19,9 +20,10 @@ namespace Loopbox_GUI
     /// </summary>
     public partial class StatisticsWindow : Window
     {
-        public StatisticsWindow()
+        public StatisticsWindow(LoopboxLib loopbox)
         {
             InitializeComponent();
+            textTrackCount.Text = "Total number of tracks: " + loopbox.GetTracksCount();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();

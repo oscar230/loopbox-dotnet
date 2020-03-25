@@ -28,8 +28,17 @@ namespace Loopbox_GUI
         {
             loopbox = new LoopboxLib();
             InitializeComponent();
+            CheckButtonsEnabled();
         }
 
+        private void CheckButtonsEnabled()
+        {
+            btnAlbum.IsEnabled = loopbox.IsLoaded();
+            btnExport.IsEnabled = loopbox.IsLoaded();
+            btnLoad.IsEnabled = !loopbox.IsLoaded();
+            btnStatistics.IsEnabled = loopbox.IsLoaded();
+            btnMeta.IsEnabled = loopbox.IsLoaded();
+        }
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -51,41 +60,16 @@ namespace Loopbox_GUI
             {
                 MessageBox.Show("Error loading collection. No action taken. Please try again.", "Unkown error.");
             }
+            CheckButtonsEnabled();
         }
-
-        private void btnStatistics_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnMeta_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAlbum_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnExport_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void hyperlinkCredits_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(hyperlinkCredits.NavigateUri.ToString());
-        }
-
-        private void hyperlinkRekordbox_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(hyperlinkRekordbox.NavigateUri.ToString());
-        }
+        private void btnStatistics_Click(object sender, RoutedEventArgs e) => new StatisticsWindow(loopbox).Show();
+        private void btnMeta_Click(object sender, RoutedEventArgs e) => Close();
+        private void btnAlbum_Click(object sender, RoutedEventArgs e) => Close();
+        private void btnExport_Click(object sender, RoutedEventArgs e) => Close();
+        private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
+        private void hyperlinkCredits_Click(object sender, RoutedEventArgs e) => HyperLinkRedirect(hyperlinkCredits.NavigateUri.ToString());
+        private void hyperlinkRekordbox_Click(object sender, RoutedEventArgs e) => HyperLinkRedirect(hyperlinkRekordbox.NavigateUri.ToString());
+        private void HyperLinkRedirect(Hyperlink hyperlink) => HyperLinkRedirect(hyperlink.NavigateUri.ToString());
+        private void HyperLinkRedirect(string url) => System.Diagnostics.Process.Start(url);
     }
 }
