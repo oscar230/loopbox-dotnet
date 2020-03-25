@@ -36,12 +36,19 @@ namespace Loopbox
             }
         }
 
+        private string ConvertLocation(string rekordboxurl)
+        {
+            var output = rekordboxurl.Replace(@"file://localhost/", string.Empty);
+            Debug.WriteLine(rekordboxurl + " ---> " + output);
+            return output;
+        }
         public bool IsLoaded() => loaded;
         public List<Track> GetTracks() => config.Get().collection.tracks;
         public int GetTracksCount() => config.Get().collection.entries;
         public Track GetTrack(int trackId) => GetTracks().FindAll(t => t.trackId == trackId).FirstOrDefault<Track>();
         public Node GetPlaylistsRoot() => config.Get().playlists.playlistNodes.FirstOrDefault();
         public List<Node> GetAllPlaylists() => GetPlaylistsRoot().GetPlaylists();
+        public int GetAllPlaylistsCount() => GetAllPlaylists().Count();
         public List<Node> GetAllDirectories() => GetPlaylistsRoot().GetDirectories();
         public List<Node> GetPlaylistByName(string name) => GetAllPlaylists().FindAll(p => p.name.Equals(name));
         public Node GetSinglePlaylistByName(string name) => GetPlaylistByName(name).FirstOrDefault();
@@ -52,10 +59,8 @@ namespace Loopbox
         {
             var tracks = new List<Track>();
             foreach (Track t in GetTracks())
-            {
-                if (!new FileInfo(t.location).Exists)
+                if (!new FileInfo(ConvertLocation(t.location)).Exists)
                     tracks.Add(t);
-            }
             return tracks;
         }
         public int GetTracksNotExistsCount() => GetTracksNotExists().Count();
@@ -68,6 +73,7 @@ namespace Loopbox
         }
         public int GetTracksInAnyPlaylistCount() => GetTracksInAnyPlaylist().Count();
         public List<Track> GetTracksNotInAnyPlaylist() => GetTracks().FindAll(t => !GetTracksInAnyPlaylist().Contains(t));
+        public int GetTracksNotInAnyPlaylistCount() => GetTracksNotInAnyPlaylist().Count();
         public List<string> GetFileTypes() => GetTracks().Select(t => t.kind).Distinct().ToList();
         //TODO, least played/most played, track in bpm ranges, check quality by sample rate, get cue point with color in hex.
     }

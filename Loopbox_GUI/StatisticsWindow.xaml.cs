@@ -24,7 +24,9 @@ namespace Loopbox_GUI
         {
             InitializeComponent();
             textTrackCount.Text = "Total number of tracks: " + loopbox.GetTracksCount();
+            textPlaylistCount.Text = "Total number of playlists: " + loopbox.GetAllPlaylistsCount();
             textMissingCount.Text = "Number of tracks missing: " + loopbox.GetTracksNotExistsCount();
+            textNotInPlaylistCount.Text = "Number of tracks not in any playlist: " + loopbox.GetTracksNotInAnyPlaylistCount();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
