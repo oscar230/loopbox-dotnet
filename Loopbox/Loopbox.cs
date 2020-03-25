@@ -69,9 +69,9 @@ namespace Loopbox
             return tracks.Distinct().ToList();
         }
         public int GetTracksInAnyPlaylistCount() => GetTracksInAnyPlaylist().Count();
-        public List<Track> GetTracksNotInAnyPlaylist() => GetTracks().FindAll(t => !GetTracksInAnyPlaylist().Contains(t));
+        public List<Track> GetTracksNotInAnyPlaylist() => GetTracks().FindAll(t1 => GetTracks().FindAll(t2 => t2.trackId == t1.trackId).Count == 0); // TODO make more effecient
         public int GetTracksNotInAnyPlaylistCount() => GetTracksNotInAnyPlaylist().Count();
         public List<string> GetFileTypes() => GetTracks().Select(t => t.kind).Distinct().ToList();
-        //TODO, least played/most played, track in bpm ranges, check quality by sample rate, get cue point with color in hex.
+        // TODO, least played/most played, track in bpm ranges, check quality by sample rate, get cue point with color in hex.
     }
 }

@@ -173,15 +173,15 @@ namespace Loopbox
             [XmlElement("TRACK")]
             public List<Track> tracks; //Tracks by TrackId
 
-            public bool IsDirectory() => type == 0;
-            public bool IsPlaylist() => type == 1;
+            public bool IsDirectory() => this.type == 0;
+            public bool IsPlaylist() => this.type == 1;
             public List<Node> GetPlaylists()
             {
                 var playlists = new List<Node>();
                 foreach (Node n in nodes)
                 {
-                    if (IsPlaylist()) playlists.Add(n);
-                    else if (IsDirectory()) playlists.AddRange(n.GetPlaylists());
+                    if (n.IsPlaylist()) playlists.Add(n);
+                    else if (n.IsDirectory()) playlists.AddRange(n.GetPlaylists());
                 }
                 return playlists;
             }
