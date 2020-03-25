@@ -36,7 +36,9 @@ namespace Loopbox
             }
         }
 
-        private string ConvertLocation(string rekordboxurl) => @"\\?\" + rekordboxurl.Replace(@"file://localhost/", string.Empty);
+        //TODO fix this mess of a method!!
+        private string ConvertLocation(string rekordboxurl) => rekordboxurl.Replace(@"file://localhost/", string.Empty).Replace(@"%20", @" ").Replace(@"/", "\\").Replace(@"%5b", "[").Replace(@"%5d", "]").Replace(@"%26", "&").Replace(@"a%cc%8a", "å").Replace(@"o%cc%88", "ö").Replace(@"a%cc%88", "ä").Replace(@"%27", @"'").Replace(@"A%cc%88", "Ä");
+
         public bool IsLoaded() => loaded;
         public List<Track> GetTracks() => config.Get().collection.tracks;
         public int GetTracksCount() => config.Get().collection.entries;
@@ -54,8 +56,14 @@ namespace Loopbox
         {
             var tracks = new List<Track>();
             foreach (Track t in GetTracks())
-                if (!new FileInfo(ConvertLocation(t.location)).Exists)
+            {
+                var fileInfo = new FileInfo(ConvertLocation(t.location));
+                if (!fileInfo.Exists)
+                {
                     tracks.Add(t);
+                    Debug.WriteLine("Did not find file at: " + fileInfo.FullName);
+                }
+            }
             return tracks;
         }
         public int GetTracksNotExistsCount() => GetTracksNotExists().Count();
