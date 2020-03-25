@@ -24,6 +24,7 @@ namespace Loopbox_GUI
         {
             InitializeComponent();
             textTrackCount.Text = "Total number of tracks: " + loopbox.GetTracksCount();
+            textMissingCount.Text = "Number of tracks missing: " + loopbox.GetTracksNotExistsCount();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
