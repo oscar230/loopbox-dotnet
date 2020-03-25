@@ -82,6 +82,15 @@ namespace Loopbox
         }
         public int GetTracksNotInAnyPlaylistCount() => GetTracksNotInAnyPlaylist().Count();
         public List<string> GetFileTypes() => GetTracks().Select(t => t.Kind).Distinct().ToList();
+        private static bool SearchTermsMatch(string a, string b) => a.ToLower().Replace(@" ", string.Empty).Equals(b.ToLower().Replace(@" ", string.Empty));
+        private static bool SearchTerms(string a, List<string> terms)
+        {
+            foreach (string s in terms)
+                if (SearchTermsMatch(a, s))
+                    return true;
+            return false;
+        }
+        public static List<Track> Search(List<Track> tracks, string searchquery) => tracks.FindAll(track => SearchTerms(searchquery, new List<string>() { track.Name, track.Album, track.Artist, track.Genre, track.Label })).ToList<Track>();
         // TODO, least played/most played, track in bpm ranges, check quality by sample rate, get cue point with color in hex.
     }
 }
