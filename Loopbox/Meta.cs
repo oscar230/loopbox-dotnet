@@ -16,13 +16,11 @@ namespace Loopbox
         private static TagLib.File GetFile(string pathname) => TagLib.File.Create(pathname);
         public static ImageSource GetAlbumArt(string pathname)
         {
-            var file = GetFile(pathname);
-            Debug.WriteLine("Extract album art from file\n\tname: " + file.Name + "\n\tmime: "+ file.MimeType + "\n\tpicture size: "+ file.Tag.Pictures.Length);
-            var mStream = new MemoryStream();
-            var firstPicture = file.Tag.Pictures.FirstOrDefault();
+            var firstPicture = GetFile(pathname).Tag.Pictures.FirstOrDefault();
             if (firstPicture != null)
             {
                 byte[] pData = firstPicture.Data.Data;
+                var mStream = new MemoryStream();
                 mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
                 var bitmap = new Bitmap(mStream, false);
                 mStream.Dispose();
@@ -31,19 +29,7 @@ namespace Loopbox
             else
                 return null;
         }
-        public static bool ImageExist(string pathname) => GetFile(pathname).Tag.Pictures.Length > 0;
-
-        [DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool DeleteObject([In] IntPtr hObject);
-        public static ImageSource ImageSourceFromBitmap(Bitmap bmp)
-        {
-            var handle = bmp.GetHbitmap();
-            try
-            {
-                return Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-            }
-            finally { DeleteObject(handle); }
-        }
+        public static bool ImageExist(string pathname) => GetFile(pathname).Tag.Pictures.FirstOrDefault() == null ? false : true;
+        public static ImageSource ImageSourceFromBitmap(Bitmap bmp) => Imaging.CreateBitmapSourceFromHBitmap(bmp.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
     }
 }
