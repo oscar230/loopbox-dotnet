@@ -26,6 +26,7 @@ namespace Loopbox_GUI
             textTrackCount.Text = "Total number of tracks: " + loopbox.GetTracksCount();
             textPlaylistCount.Text = "Total number of playlists: " + loopbox.GetAllPlaylistsCount();
             textMissingCount.Text = "Number of tracks missing: " + loopbox.GetTracksNotExistsCount();
+            textLowQualityCount.Text = "Number of tracks of low quality; TODO!";
             textNotInPlaylistCount.Text = "Number of tracks not in any playlist: " + loopbox.GetTracksNotInAnyPlaylistCount();
         }
 
