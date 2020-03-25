@@ -7,6 +7,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Drawing;
 
 namespace Loopbox
 {
@@ -53,57 +54,57 @@ namespace Loopbox
         public class Track
         {
             [XmlAttribute("TrackID")]
-            public int trackId; // RekordBox index
+            private int trackId; // RekordBox index
             [XmlAttribute("Key")]
-            public int key = int.MinValue; // Same as trackId, to represent track in playlists
+            private int key = int.MinValue; // Same as trackId, to represent track in playlists
             [XmlAttribute("Name")]
-            public string name;
+            private string name;
             [XmlAttribute("Artist")]
-            public string artist;
+            private string artist;
             [XmlAttribute("Composer")]
-            public string composer;
+            private string composer;
             [XmlAttribute("Album")]
-            public string album;
+            private string album;
             [XmlAttribute("Grouping")]
-            public string grouping;
+            private string grouping;
             [XmlAttribute("Genre")]
-            public string genre;
+            private string genre;
             [XmlAttribute("Kind")]
-            public string kind;
+            private string kind;
             [XmlAttribute("Size")]
-            public int size;
+            private int size;
             [XmlAttribute("TotalTime")]
-            public int totaltime;
+            private int totaltime;
             [XmlAttribute("DiscNumber")]
-            public int discnumber;
+            private int discnumber;
             [XmlAttribute("TrackNumber")]
-            public int tracknumber;
+            private int tracknumber;
             [XmlAttribute("Year")]
-            public int year;
+            private int year;
             [XmlAttribute("AverageBpm")]
-            public decimal averagebpm;
+            private decimal averagebpm;
             [XmlAttribute("DateAdded")]
-            public string dateadded;
+            private string dateadded;
             [XmlAttribute("BitRate")]
-            public int bitrate;
+            private int bitrate;
             [XmlAttribute("SampleRate")]
-            public int samplerate;
+            private int samplerate;
             [XmlAttribute("Comments")]
-            public string comments;
+            private string comments;
             [XmlAttribute("PlayCount")]
-            public int playcount;
+            private int playcount;
             [XmlAttribute("Rating")]
-            public int rating;
+            private int rating;
             [XmlAttribute("Location")]
-            public string location;
+            private string location;
             [XmlAttribute("Remixer")]
-            public string remixer;
+            private string remixer;
             [XmlAttribute("Tonality")]
-            public string tonality;
+            private string tonality;
             [XmlAttribute("Label")]
-            public string label;
+            private string label;
             [XmlAttribute("Mix")]
-            public string mix;
+            private string mix;
 
             [XmlElement("TEMPO")]
             public List<Tempo> tempos;
@@ -120,12 +121,34 @@ namespace Loopbox
                     return collection.tracks.Find(t => t.trackId.Equals(this.key));
             }
             private string ConvertLocation(string rekordboxurl) => new System.Uri(rekordboxurl.Replace(@"file://localhost/", @"file:///").Replace(@"#", @"%23").Replace(@".", @"%2E")).LocalPath;
-            private FileInfo GetFile() => file == null ? file = new FileInfo(ConvertLocation(location)): file;
+            private FileInfo GetFile() => file == null ? file = new FileInfo(Location): file;
             public FileInfo File => GetFile();
+            public Bitmap AlbumArt => Meta.Image(Location);
+            public bool AlbumArtExists => Meta.Image(Location) == null ? false : true;
+            public bool MetaComplete => string.IsNullOrEmpty(name) || string.IsNullOrEmpty(artist) || string.IsNullOrEmpty(genre) || string.IsNullOrEmpty(label) ? false : true;
             public bool Exist => GetFile().Exists;
             public string Artist => artist;
             public string Name => name;
             public int TrackId => trackId;
+            public string Composer => composer;
+            public string Album => album;
+            public string Grouping => grouping;
+            public string Genre => genre;
+            public string Kind => kind;
+            public int Size => size;
+            public int Year => year;
+            public float AverageBpm => (float)averagebpm;
+            public DateTime DateAdded => DateTime.Parse(dateadded);
+            public int Bitrate => bitrate;
+            public int Samplerate => samplerate;
+            public string Comments => comments;
+            public int PlayCount => playcount;
+            public int Rating => rating;
+            public string Remixer => remixer;
+            public string Tonality => tonality;
+            public string Label => label;
+            public string Mix => mix;
+            public string Location => ConvertLocation(location);
             public override string ToString() => "Track: " + trackId + " " + name;
         }
 

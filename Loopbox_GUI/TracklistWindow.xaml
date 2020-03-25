@@ -28,6 +28,9 @@
             <TextBlock Text="Loopbox Tracklist" FontSize="22" Foreground="#FF909090" TextAlignment="Center" FontWeight="Bold"/>
             <TextBlock x:Name="textTitle" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textTrackCount" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textSelectedTrackName" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textSelectedTrackArtist" FontSize="16" Foreground="#FF909090"/>
+            <Image x:Name="textSelectedImage"></Image>
             <Button x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Close" FontSize="16"/>

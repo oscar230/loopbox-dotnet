@@ -25,9 +25,10 @@ namespace Loopbox_GUI
         {
             this.loopbox = loopbox;
             InitializeComponent();
+            Setup();
         }
 
-        private void SetupText()
+        private void Setup()
         {
             textTrackCount.Text = "Total number of tracks: " + loopbox.GetTracksCount();
             textPlaylistCount.Text = "Total number of playlists: " + loopbox.GetAllPlaylistsCount();

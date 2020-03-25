@@ -17,17 +17,45 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0">
             <TextBlock Text="Loopbox Track" FontSize="22" Foreground="#FF909090" TextAlignment="Center" FontWeight="Bold"/>
+            <Button x:Name="btnMetaAlbumArt" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMetaAlbumArt_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Find album art" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnMeta" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMeta_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Find meta info" FontSize="16"/>
+                </StackPanel>
+            </Button>
             <Button x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Close" FontSize="16"/>
                 </StackPanel>
             </Button>
         </StackPanel>
-        <Image Grid.Column="0" Grid.Row="1" Source="images/noimage.png"></Image>
+        <Image x:Name="imageTrack" Grid.Column="0" Grid.Row="1" Source="images/noimage.png"></Image>
         <StackPanel Grid.Column="1" Grid.Row="0">
             <TextBlock x:Name="textTrackName" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textTrackArtist" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textTrackExists" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackComposer" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackAlbum" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackGrouping" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackGenre" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackKind" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackSize" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackYear" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackAvarageBpm" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackDateadded" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackBitrate" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackSamplerate" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackComments" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackPlaycount" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackRating" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackRemixer" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackTonality" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackLabel" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textTrackMix" FontSize="16" Foreground="#FF909090"/>
         </StackPanel>
     </Grid>
 </Window>

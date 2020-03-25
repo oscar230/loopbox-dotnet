@@ -40,7 +40,7 @@ namespace Loopbox
         public Collection GetCollection() => GetLibrary().collection;
         public List<Track> GetTracks() => GetCollection().tracks;
         public int GetTracksCount() => GetCollection().entries;
-        public Track GetTrack(int trackId) => GetTracks().FindAll(t => t.trackId == trackId).FirstOrDefault<Track>();
+        public Track GetTrack(int trackId) => GetTracks().FindAll(t => t.TrackId == trackId).FirstOrDefault<Track>();
         public Node GetPlaylistsRoot() => config.Get().playlists.playlistNodes.FirstOrDefault();
         public List<Node> GetAllPlaylists() => GetPlaylistsRoot().GetPlaylists();
         public int GetAllPlaylistsCount() => GetAllPlaylists().Count();
@@ -55,7 +55,7 @@ namespace Loopbox
             return tracks;
         }
         public List<Track> GetTracksInPlaylistByName(string name) => GetSinglePlaylistByName(name).tracks;
-        public bool GetTrackExists(int trackId) => new FileInfo(GetTrack(trackId).location).Exists;
+        public bool GetTrackExists(int trackId) => GetTrack(trackId).Exist;
         public List<Track> GetTracksNotExists()
         {
             var tracks = new List<Track>();
@@ -81,7 +81,7 @@ namespace Loopbox
             return tracks;
         }
         public int GetTracksNotInAnyPlaylistCount() => GetTracksNotInAnyPlaylist().Count();
-        public List<string> GetFileTypes() => GetTracks().Select(t => t.kind).Distinct().ToList();
+        public List<string> GetFileTypes() => GetTracks().Select(t => t.Kind).Distinct().ToList();
         // TODO, least played/most played, track in bpm ranges, check quality by sample rate, get cue point with color in hex.
     }
 }
