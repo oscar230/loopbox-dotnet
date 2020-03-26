@@ -10,5 +10,5 @@ Loopbox is a tool adding features for Rekordbox. Rekordbox created and maintaine
 * .Net
 ## Contribute
 * <b>Developers</b>: See issues and make pull request, thanks!
-* <b>DJs</b>: Please contact <a href="https://www.oscaande.se/contact">oscar.andersson.200@gmail.com</a> or create an issue here on github with feedback and bug reports.
+* <b>DJs</b>: Please contact oscar.andersson.200@gmail.com or create an issue here on github with feedback.
 * <b>Designers</b>: All design contributions are helpful, please follow rekordbox's design.
