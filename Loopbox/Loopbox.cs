@@ -91,6 +91,10 @@ namespace Loopbox
             return false;
         }
         public static List<Track> Search(List<Track> tracks, string searchquery) => string.IsNullOrEmpty(searchquery) ? tracks : tracks.FindAll(track => SearchTerms(searchquery, new List<string>() { track.Name, track.Album, track.Artist, track.Genre, track.Label })).ToList<Track>();
+        public List<Track> GetTracksLowBitrate(List<Track> tracks) => tracks.FindAll(t => t.Bitrate < 320);
+        public List<Track> GetTracksLowBitrate() => GetTracksLowBitrate(GetTracks());
+        public int GetTracksLowBitrateCount(List<Track> tracks) => GetTracksLowBitrate(tracks).Count();
+        public int GetTracksLowBitrateCount() => GetTracksLowBitrate().Count();
         // TODO, least played/most played, track in bpm ranges, check quality by sample rate, get cue point with color in hex.
     }
 }
