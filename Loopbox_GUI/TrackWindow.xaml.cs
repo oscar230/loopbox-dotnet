@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using static Loopbox.Config;
+﻿using Loopbox.Library;
+using System.Windows;
 
 namespace Loopbox_GUI
 {
@@ -8,8 +8,8 @@ namespace Loopbox_GUI
     /// </summary>
     public partial class TrackWindow : Window
     {
-        Track track;
-        public TrackWindow(Track track)
+        ITrack track;
+        public TrackWindow(ITrack track)
         {
             this.track = track;
             InitializeComponent();
@@ -19,29 +19,29 @@ namespace Loopbox_GUI
         {
             textTrackAlbum.Text = track.Album;
             textTrackArtist.Text = track.Artist;
-            textTrackAvarageBpm.Text = track.AverageBpm.ToString();
+            textTrackAvarageBpm.Text = track.Averagebpm + " bpm";
             textTrackBitrate.Text = track.Bitrate.ToString();
             textTrackComments.Text = track.Comments;
             textTrackComposer.Text = track.Composer;
-            textTrackDateadded.Text = track.DateAdded;
-            textTrackExists.Text = track.Exist ? "Yes" : "No";
+            textTrackDateadded.Text = track.Dateadded.ToString();
+            textTrackExists.Text = track.Exists ? "Yes" : "No";
             textTrackGenre.Text = track.Genre;
             textTrackGrouping.Text = track.Grouping;
             textTrackKind.Text = track.Kind;
             textTrackLabel.Text = track.Label;
             textTrackMix.Text = track.Mix;
             textTrackName.Text = track.Name;
-            textTrackPlaycount.Text = track.PlayCount.ToString();
+            textTrackPlaycount.Text = track.Playcount.ToString();
             textTrackRating.Text = track.Rating.ToString();
             textTrackRemixer.Text = track.Remixer;
             textTrackSamplerate.Text = track.Samplerate.ToString();
             textTrackSize.Text = track.Size.ToString();
             textTrackTonality.Text = track.Tonality;
             textTrackYear.Text = track.Year.ToString();
-            btnMetaAlbumArt.IsEnabled = !track.AlbumArtExists;
-            if (track.AlbumArtExists)
-                imageTrack.Source = track.AlbumArt;
-            btnMeta.IsEnabled = !track.MetaComplete;
+            //btnMetaAlbumArt.IsEnabled = !track.AlbumArtExists;
+            //if (track.AlbumArtExists)
+            //    imageTrack.Source = track.AlbumArt;
+            //btnMeta.IsEnabled = !track.MetaComplete;
         }
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
         private void btnMetaAlbumArt_Click(object sender, RoutedEventArgs e)
