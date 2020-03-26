@@ -23,7 +23,6 @@ namespace Loopbox
                 var mStream = new MemoryStream();
                 mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
                 var bitmap = new Bitmap(mStream, false);
-                mStream.Dispose();
                 return ImageSourceFromBitmap(bitmap);
             }
             else
