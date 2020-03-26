@@ -29,12 +29,27 @@ namespace Loopbox_GUI
             SearchClear();
             textTitle.Text = title;
             textTrackCount.Text = "Tracks shown: " + tracks.Count;
+            btnTrackOpen.IsEnabled = false;
         }
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
-        private void listBoxTracklist_SelectionChanged(object sender, SelectionChangedEventArgs e) => new TrackWindow(tracks.Find(t => t.TrackId.Equals((listBoxTracklist.SelectedItem as Track).TrackId))).Show();
+        private void listBoxTracklist_SelectionChanged(object sender, SelectionChangedEventArgs e) => btnTrackOpen.IsEnabled = true;
         private void btnSearch_Click(object sender, RoutedEventArgs e) => listBoxTracklist.ItemsSource = Search(search.Text);
         private void btnSearchClear_Click(object sender, RoutedEventArgs e) => SearchClear();
-        private List<Track> Search(string searchterm) => Loopbox.LoopboxLib.Search(tracks, searchterm);
         private void SearchClear() => listBoxTracklist.ItemsSource = Search(string.Empty);
+        private List<Track> Search(string searchterm) => Loopbox.LoopboxLib.Search(tracks, searchterm);
+        private void btnTrackOpen_Click(object sender, RoutedEventArgs e) => OpenTrack();
+        private void listBoxTracklist_MouseDoubleClick(object sender, MouseButtonEventArgs e) => OpenTrack();
+        private void OpenTrack()
+        {
+            if (listBoxTracklist.SelectedItem != null)
+                new TrackWindow(tracks.Find(t => t.TrackId.Equals((listBoxTracklist.SelectedItem as Track).TrackId))).Show();
+            else
+                Debug.WriteLine("No track selected.");
+        }
+        private void listBoxTracklist_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+            btnTrackOpen.IsEnabled = false;
+            listBoxTracklist.SelectedItem = null;
+        }
     }
 }

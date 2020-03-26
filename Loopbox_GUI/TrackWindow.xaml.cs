@@ -38,7 +38,7 @@ namespace Loopbox_GUI
             textTrackSize.Text = track.Size.ToString();
             textTrackTonality.Text = track.Tonality;
             textTrackYear.Text = track.Year.ToString();
-            btnMetaAlbumArt.IsEnabled = track.AlbumArtExists;
+            btnMetaAlbumArt.IsEnabled = !track.AlbumArtExists;
             if (track.AlbumArtExists)
                 imageTrack.Source = track.AlbumArt;
             btnMeta.IsEnabled = !track.MetaComplete;
