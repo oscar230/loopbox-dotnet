@@ -5,18 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Track View" Height="600" Width="700" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" BorderBrush="#FF191919" BorderThickness="5">
+        Title="Track View" Height="520" Width="600" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" BorderBrush="#FF191919" BorderThickness="5">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0">
+        <StackPanel Grid.Column="0">
             <TextBlock Text="Loopbox Track" FontSize="22" Foreground="#FF909090" TextAlignment="Center" FontWeight="Bold"/>
             <Button x:Name="btnMetaAlbumArt" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMetaAlbumArt_Click">
                 <StackPanel Orientation="Horizontal">
@@ -33,62 +28,65 @@
                     <TextBlock Text="Close" FontSize="16"/>
                 </StackPanel>
             </Button>
+            <Image x:Name="imageTrack" Source="images/noimage.png"></Image>
         </StackPanel>
-        <Image x:Name="imageTrack" Grid.Column="0" Grid.Row="1" Source="images/noimage.png"></Image>
-        <Grid Grid.Column="1" Grid.RowSpan="2">
+        <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <TextBlock Text="Title" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="Artist" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="File Exists" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="Composer" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="Album" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="Grouping" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="Genre" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="File Type" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="File Size" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="Year Released" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Track information" FontSize="16" Foreground="#FF909090" Background="#FF191919" TextAlignment="Center"/>
+                <TextBlock Text="Title" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Artist" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="Remixer" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Composer" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="Album" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Year Released" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="Genre" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Label" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="Mix" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Grouping" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="Rekordbox Analysis" FontSize="16" Foreground="#FF909090" TextAlignment="Center"/>
                 <TextBlock Text="Avarage Bpm" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="Tonality" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Comments" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
                 <TextBlock Text="Dateadded" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="Playcount" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="Rating" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="File" FontSize="16" Foreground="#FF909090" Background="#FF191919" TextAlignment="Center"/>
+                <TextBlock Text="File Exists" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock Text="File Type" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock Text="File Size" FontSize="16" Foreground="#FF909090"/>
                 <TextBlock Text="Bitrate" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
                 <TextBlock Text="Samplerate" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="Comments" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="Playcount" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="Rating" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="Remixer" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="Tonality" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock Text="Label" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock Text="Mix" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
             </StackPanel>
             <StackPanel Grid.Column="1">
-                <TextBlock x:Name="textTrackName" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackArtist" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackExists" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackComposer" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackAlbum" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackGrouping" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackGenre" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackKind" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackSize" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackYear" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock FontSize="16"/>
+                <TextBlock x:Name="textTrackName" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackArtist" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock x:Name="textTrackRemixer" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackComposer" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock x:Name="textTrackAlbum" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackYear" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock x:Name="textTrackGenre" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackLabel" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock x:Name="textTrackMix" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackGrouping" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock FontSize="16"/>
                 <TextBlock x:Name="textTrackAvarageBpm" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock x:Name="textTrackTonality" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackComments" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
                 <TextBlock x:Name="textTrackDateadded" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackPlaycount" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock x:Name="textTrackRating" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock FontSize="16"/>
+                <TextBlock x:Name="textTrackExists" FontSize="16" Foreground="#FF909090"/>
+                <TextBlock x:Name="textTrackKind" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
+                <TextBlock x:Name="textTrackSize" FontSize="16" Foreground="#FF909090"/>
                 <TextBlock x:Name="textTrackBitrate" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
                 <TextBlock x:Name="textTrackSamplerate" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackComments" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackPlaycount" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackRating" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackRemixer" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackTonality" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
-                <TextBlock x:Name="textTrackLabel" FontSize="16" Foreground="#FF909090"/>
-                <TextBlock x:Name="textTrackMix" FontSize="16" Foreground="#FF909090" Background="#FF191919"/>
             </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1">
-            <Image x:Name="waveform"/>
         </Grid>
     </Grid>
 </Window>
