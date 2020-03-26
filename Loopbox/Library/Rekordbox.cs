@@ -17,9 +17,9 @@ namespace Loopbox.Library
         public static string ConvertLocation(string rekordboxurl) => new System.Uri(rekordboxurl.Replace(@"file://localhost/", @"file:///").Replace(@"#", @"%23").Replace(@".", @"%2E")).LocalPath;
         private static ILibrary Load(string pathname)
         {
-            if (Path.GetExtension(pathname).Equals("xml"))
+            if (Path.GetExtension(pathname).ToLower().Contains("xml"))
                 return LoadXML(pathname);
-            else if (Path.GetExtension(pathname).Equals("zip"))
+            else if (Path.GetExtension(pathname).ToLower().Contains(".zip"))
                 throw new NotImplementedException();
             else
                 throw new FileNotFoundException();
@@ -28,7 +28,7 @@ namespace Loopbox.Library
         {
             TextReader reader = new StreamReader(pathname);
             XmlSerializer deserializer = new XmlSerializer(typeof(RekordboxXML.Library));
-            RekordboxXML.Library library = (RekordboxXML.Library)deserializer.Deserialize(reader);
+            ILibrary library = (RekordboxXML.Library)deserializer.Deserialize(reader);
             reader.Close();
             return library;
         }

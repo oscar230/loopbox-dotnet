@@ -10,7 +10,7 @@ namespace Loopbox.Library.RekordboxXML
     // Nodes in playlists
     [Serializable]
     [XmlRoot("NODE")]
-    class PlaylistNode : IPlaylistNode
+    public class PlaylistNode : IPlaylistNode
     {
         [XmlAttribute("Type")]
         public int type; // 0 directory, 1 playlist
@@ -23,9 +23,9 @@ namespace Loopbox.Library.RekordboxXML
         [XmlAttribute("KeyType")]
         public int keyType;
         [XmlElement("NODE")]
-        public List<IPlaylistNode> nodes;
+        public List<PlaylistNode> nodes;
         [XmlElement("TRACK")]
-        public List<ITrack> tracks; //Tracks by TrackId
+        public List<Track> tracks; //Tracks by TrackId
         private List<ITrack> _internal_tracks;
         private List<ITrack> InternalTracks => _internal_tracks == null ? _internal_tracks = SetInternalTracks() : _internal_tracks;
         private List<ITrack> SetInternalTracks()
@@ -40,7 +40,7 @@ namespace Loopbox.Library.RekordboxXML
         public string Name { get => name; set => throw new NotImplementedException(); }
         public int Entries { get => count > 0 ? count : entries; set => throw new NotImplementedException(); }
         public int KeyType { get => keyType; set => throw new NotImplementedException(); }
-        public List<IPlaylistNode> Nodes { get => nodes; set => throw new NotImplementedException(); }
+        public List<IPlaylistNode> Nodes { get => new List<IPlaylistNode>(nodes); set => throw new NotImplementedException(); }
         public bool IsDirectory { get => type == 0; set => throw new NotImplementedException(); }
         public bool IsPlaylist { get => type == 1; set => throw new NotImplementedException(); }
 

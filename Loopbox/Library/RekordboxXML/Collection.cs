@@ -9,14 +9,14 @@ namespace Loopbox.Library.RekordboxXML
 {
     [Serializable]
     [XmlRoot("COLLECTION")]
-    class Collection : ICollection
+    public class Collection : ICollection
     {
         [XmlAttribute("Entries")]
         public int entries;
-        [XmlElement("TRACK")]
-        public List<ITrack> tracks;
+        [XmlArray("TRACK")]
+        public List<Track> tracks;
 
         public int Entries { get => entries; set => throw new NotImplementedException(); }
-        public List<ITrack> Tracks { get => tracks; set => throw new NotImplementedException(); }
+        public List<ITrack> Tracks { get => new List<ITrack>(tracks); set => throw new NotImplementedException(); }
     }
 }

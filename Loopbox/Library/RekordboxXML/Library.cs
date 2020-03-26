@@ -10,7 +10,7 @@ namespace Loopbox.Library.RekordboxXML
 {
     [Serializable]
     [XmlRoot("DJ_PLAYLISTS")]
-    class Library : ILibrary
+    public class Library : ILibrary
     {
         [XmlAttribute("Version")]
         public string version;
@@ -19,7 +19,7 @@ namespace Loopbox.Library.RekordboxXML
         [XmlElement("COLLECTION")]
         public Collection collection;
         [XmlElement("PLAYLISTS")]
-        public IPlaylist playlists;
+        public Playlist playlists;
         public string Version { get => version; set => throw new NotImplementedException(); }
         public IProduct Product { get => product; set => throw new NotImplementedException(); }
         public ICollection Collection { get => collection; set => throw new NotImplementedException(); }

@@ -11,7 +11,7 @@ namespace Loopbox.Library.RekordboxXML
 {
     [Serializable]
     [XmlRoot("TRACK")]
-    class Track : ITrack
+    public class Track : ITrack
     {
         [XmlAttribute("TrackID")]
         public int trackId; // RekordBox index

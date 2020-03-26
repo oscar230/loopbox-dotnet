@@ -9,7 +9,7 @@ namespace Loopbox.Library.RekordboxXML
 {
     [Serializable]
     [XmlRoot("PRODUCT")]
-    class Product : IProduct
+    public class Product : IProduct
     {
         [XmlAttribute("Name")]
         public string name;

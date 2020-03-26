@@ -9,7 +9,7 @@ namespace Loopbox.Library.RekordboxXML
 {
     [Serializable]
     [XmlRoot("TEMPO")]
-    class Tempo : ITempo
+    public class Tempo : ITempo
     {
         [XmlAttribute("Inizio")]
         public decimal inizio; // Beginning (Italian)

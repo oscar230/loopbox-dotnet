@@ -9,7 +9,7 @@ namespace Loopbox.Library.RekordboxXML
 {
     [Serializable]
     [XmlRoot("POSITION_MARK")]
-    class PositionMark : IPositionMark
+    public class PositionMark : IPositionMark
     {
         [XmlAttribute("Name")]
         public string name;

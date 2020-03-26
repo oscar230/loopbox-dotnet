@@ -9,10 +9,10 @@ namespace Loopbox.Library.RekordboxXML
 {
     [Serializable]
     [XmlRoot("PLAYLISTS")]
-    class Playlist : IPlaylist
+    public class Playlist : IPlaylist
     {
         [XmlElement("NODE")]
-        public List<IPlaylistNode> playlistNodes; // Top of node tree is name=ROOT
-        public List<IPlaylistNode> PlaylistNodes { get => playlistNodes; set => throw new NotImplementedException(); }
+        public List<PlaylistNode> playlistNodes; // Top of node tree is name=ROOT
+        public List<IPlaylistNode> PlaylistNodes { get => new List<IPlaylistNode>(playlistNodes); set => throw new NotImplementedException(); }
     }
 }
