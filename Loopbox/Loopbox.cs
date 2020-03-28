@@ -30,16 +30,24 @@ namespace Loopbox
         // TRACK
         //
         public List<Track> GetTracks() => Tracks;
+        private List<Track> GetTracks(List<int> ids) => Tracks.Where(t => ids.Contains(t.Id)).ToList();
         public int GetTracksCount() => Tracks.Count;
         public Track GetTrack(int id) => Tracks.FindAll(t => t.Id == id).FirstOrDefault();
-        public List<Track> GetTracksByPlaylist(PlaylistNode playlist) => playlist.Tracks;
-        public List<Track> GetTracksInPlaylist(string name) => GetPlaylist(name).Tracks;
+        public List<Track> GetTracksInPlaylist(PlaylistNode playlist) => GetTracks(playlist.Tracks);
+        public List<Track> GetTracksInPlaylist(string name) => GetTracksInPlaylist(GetPlaylist(name));
         public bool GetTrackExists(int trackId) => GetTrack(trackId).Exists;
         public List<Track> GetTracksNotExists() => Tracks.Where(t => !t.Exists).ToList<Track>();
         public int GetTracksNotExistsCount() => GetTracksNotExists().Count;
         public List<Track> GetTracksExists() => Tracks.Where(t => t.Exists).ToList<Track>();
         public int GetTracksExistsCount() => GetTracksExists().Count;
-        public List<Track> GetTracksInAnyPlaylist() => Playlists.SelectMany(pln => pln.Tracks).Distinct().ToList();
+        public List<Track> GetTracksInAnyPlaylist()
+        {
+            var tracks = new List<Track>();
+            foreach (PlaylistNode playlist in GetAllPlaylists())
+                foreach (Track track in GetTracksInPlaylist(playlist))
+                    tracks.Add(track);
+            return tracks.Distinct().ToList();
+        }
         public int GetTracksInAnyPlaylistCount() => GetTracksInAnyPlaylist().Count();
         public List<Track> GetTracksNotInAnyPlaylist() => Tracks.Except(GetTracksInAnyPlaylist()).ToList();
         public int GetTracksNotInAnyPlaylistCount() => GetTracksNotInAnyPlaylist().Count();
@@ -63,5 +71,7 @@ namespace Loopbox
         public List<PlaylistNode> GetAllPlaylist(string name) => Playlists.FindAll(p => p.Name.Equals(name));
         public PlaylistNode GetPlaylist(string name) => Playlists.FindAll(p => p.Name.Equals(name)).FirstOrDefault();
         public List<PlaylistNode> GetAllDirectories() => PlaylistRoot.Directories;
+        public List<PlaylistNode> GetPlaylistsWithDuplicateTracks() => GetAllPlaylists().Where(pl => pl.Tracks.Distinct().Count() > pl.Tracks.Count()).ToList();
+        public int GetPlaylistsWithDuplicateTracksCount() => GetPlaylistsWithDuplicateTracks().Count;
     }
 }

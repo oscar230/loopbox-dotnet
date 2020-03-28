@@ -39,9 +39,9 @@
                     <TextBlock Text="View tracks of low quality" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="0" x:Name="btnPlaylistsDuplicate" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" IsEnabled="False" Click="btnPlaylistsDuplicate_Click">
+            <Button Grid.Column="0" x:Name="btnPlaylistsDuplicate" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnPlaylistsDuplicate_Click">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="View duplicates of tracks in playlists" FontSize="16"/>
+                    <TextBlock Text="View playlists with duplicates of tracks" FontSize="16"/>
                 </StackPanel>
             </Button>
             <Button Grid.Column="0" x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
@@ -58,6 +58,7 @@
             <TextBlock x:Name="textLowQualityCount" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textInPlaylistCount" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textNotInPlaylistCount" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textPlaylistDuplicateCount" FontSize="16" Foreground="#FF909090"/>
         </StackPanel>
     </Grid>
 </Window>

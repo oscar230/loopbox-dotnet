@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,16 +27,7 @@ namespace Loopbox.RekordboxXML
         public List<PlaylistNode> nodes;
         [XmlElement("TRACK")]
         public List<Track> tracks; //Tracks by TrackId
-        private List<Track> _internal_tracks;
-        private List<Track> InternalTracks => _internal_tracks == null ? _internal_tracks = SetInternalTracks() : _internal_tracks;
-        private List<Track> SetInternalTracks()
-        {
-            List<Track> tracks = new List<Track>();
-            foreach (Track track in tracks)
-                tracks.Add(track);
-            return tracks;
-        }
-        public List<Track> Tracks { get => InternalTracks; set => throw new NotImplementedException(); }
+        public List<int> Tracks { get => tracks.ToList<Track>().Select(t => t.Id).ToList(); set => throw new NotImplementedException(); }
         public int Type { get => type; set => throw new NotImplementedException(); }
         public string Name { get => name; set => throw new NotImplementedException(); }
         public int Entries { get => count > 0 ? count : entries; set => throw new NotImplementedException(); }

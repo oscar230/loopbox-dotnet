@@ -36,6 +36,7 @@ namespace Loopbox_GUI
             textLowQualityCount.Text = "Tracks of low quality: " + loopbox.GetTracksLowBitrateCount();
             textInPlaylistCount.Text = "Tracks in any playlist: " + loopbox.GetTracksInAnyPlaylistCount();
             textNotInPlaylistCount.Text = "Tracks not in any playlist: " + loopbox.GetTracksNotInAnyPlaylistCount();
+            textPlaylistDuplicateCount.Text = "Playlists with duplicate tracks: " + loopbox.GetPlaylistsWithDuplicateTracksCount();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
@@ -44,6 +45,6 @@ namespace Loopbox_GUI
         private void btnInPlaylist_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracksInAnyPlaylist(), "Tracks in any playlist.").Show();
         private void btnInNoPlaylist_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracksNotInAnyPlaylist(), "Tracks not in any playlist.").Show();
         private void btnLowQuality_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracksLowBitrate(), "Tracks of low quality.").Show();
-        private void btnPlaylistsDuplicate_Click(object sender, RoutedEventArgs e) => throw new NotImplementedException();
+        private void btnPlaylistsDuplicate_Click(object sender, RoutedEventArgs e) => new PlaylistWindow(loopbox.GetPlaylistsWithDuplicateTracks(), "Playlists with duplicate tracks.").Show();
     }
 }

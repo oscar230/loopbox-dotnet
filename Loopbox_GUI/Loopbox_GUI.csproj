@@ -65,6 +65,9 @@
     <Compile Include="StatisticsWindow.xaml.cs">
       <DependentUpon>StatisticsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlaylistWindow.xaml.cs">
+      <DependentUpon>PlaylistWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TracklistWindow.xaml.cs">
       <DependentUpon>TracklistWindow.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
     <Page Include="StatisticsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlaylistWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TracklistWindow.xaml">
       <SubType>Designer</SubType>
