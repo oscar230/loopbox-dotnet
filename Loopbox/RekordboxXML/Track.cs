@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Loopbox.AlbumArt;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 
 namespace Loopbox.RekordboxXML
@@ -95,5 +97,9 @@ namespace Loopbox.RekordboxXML
         public string Label { get => label; set => throw new NotImplementedException(); }
         public string Mix { get => mix; set => throw new NotImplementedException(); }
         public bool Exists => new FileInfo(Location).Exists;
+        private FileInfo GetFile => Exists ? new FileInfo(Location) : null;
+        public BitmapImage Art => GetFile.Extension.Contains("mp3") ? mp3.Get(GetFile) : null;
+        public bool ArtExists => GetFile.Extension.Contains("mp3") ? mp3.Exists(GetFile) : false;
+        public bool MetaComplete => string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(Artist) && string.IsNullOrEmpty(Genre) && string.IsNullOrEmpty(Label) ? false : true;
     }
 }

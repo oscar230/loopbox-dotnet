@@ -80,12 +80,10 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="250" />
-                                <ColumnDefinition Width="250" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="{Binding Artist}" Foreground="#FF909090" FontSize="12"/>
                             <TextBlock Grid.Column="1" Text="{Binding Name}" Foreground="#FF909090" FontSize="12"/>
-                            <Image Width="25" Height="25" Grid.Column="2" Source="{Binding AlbumArt}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

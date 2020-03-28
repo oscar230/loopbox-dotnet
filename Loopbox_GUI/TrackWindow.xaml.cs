@@ -1,4 +1,5 @@
-﻿using Loopbox.Library;
+﻿using Loopbox;
+using Loopbox.RekordboxXML;
 using System.Windows;
 
 namespace Loopbox_GUI
@@ -8,8 +9,8 @@ namespace Loopbox_GUI
     /// </summary>
     public partial class TrackWindow : Window
     {
-        ITrack track;
-        public TrackWindow(ITrack track)
+        Track track;
+        public TrackWindow(Track track)
         {
             this.track = track;
             InitializeComponent();
@@ -38,12 +39,16 @@ namespace Loopbox_GUI
             textTrackSize.Text = track.Size.ToString();
             textTrackTonality.Text = track.Tonality;
             textTrackYear.Text = track.Year.ToString();
-            //btnMetaAlbumArt.IsEnabled = !track.AlbumArtExists;
-            //if (track.AlbumArtExists)
-            //    imageTrack.Source = track.AlbumArt;
-            //btnMeta.IsEnabled = !track.MetaComplete;
+            btnMetaAlbumArt.IsEnabled = !track.ArtExists;
+            imageTrack.Source = track.Art;
+            btnMeta.IsEnabled = !track.MetaComplete;
         }
-        private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            imageTrack.Source = null;
+            Close();
+        }
+
         private void btnMetaAlbumArt_Click(object sender, RoutedEventArgs e)
         {
 

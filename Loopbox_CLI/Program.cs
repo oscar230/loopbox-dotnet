@@ -19,7 +19,8 @@ namespace Loopbox_CLI
             else
                 loopbox.Load("C:/rekordbox.xml");
             Menu.Print(loopbox.ToString());
-            Menu.PrintAttribute("Tracks in collection", loopbox.GetTracksCount().ToString());
+            Menu.PrintAttribute("Tracks in library", loopbox.GetTracksCount().ToString());
+            Menu.PrintAttribute("Playlists in library", loopbox.GetAllPlaylistsCount().ToString());
             Thread.Sleep(5 * 1000);
         }
     }
@@ -36,7 +37,7 @@ namespace Loopbox_CLI
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(title + " : ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write(value);
+            Console.WriteLine(value);
         }
     }
 }

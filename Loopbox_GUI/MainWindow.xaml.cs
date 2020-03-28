@@ -30,7 +30,7 @@ namespace Loopbox_GUI
             InitializeComponent();
             CheckButtonsEnabled();
 #if DEBUG
-            loopbox.Load(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\test.xml");
+            loopbox.Load("C:/rekordbox.xml");
             CheckButtonsEnabled();
 #endif
         }

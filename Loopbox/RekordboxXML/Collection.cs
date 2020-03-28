@@ -13,7 +13,7 @@ namespace Loopbox.RekordboxXML
     {
         [XmlAttribute("Entries")]
         public int entries;
-        [XmlArray("TRACK")]
+        [XmlElement("TRACK")]
         public List<Track> tracks;
 
         public int Entries { get => entries; set => throw new NotImplementedException(); }

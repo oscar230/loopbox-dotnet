@@ -1,4 +1,4 @@
-﻿using Loopbox.Library;
+﻿using Loopbox.RekordboxXML;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,8 +21,8 @@ namespace Loopbox_GUI
     /// </summary>
     public partial class TracklistWindow : Window
     {
-        List<ITrack> tracks;
-        public TracklistWindow(List<ITrack> tracks, string title)
+        List<Track> tracks;
+        public TracklistWindow(List<Track> tracks, string title)
         {
             this.tracks = tracks;
             InitializeComponent();
@@ -36,13 +36,13 @@ namespace Loopbox_GUI
         private void btnSearch_Click(object sender, RoutedEventArgs e) => listBoxTracklist.ItemsSource = Search(search.Text);
         private void btnSearchClear_Click(object sender, RoutedEventArgs e) => SearchClear();
         private void SearchClear() => listBoxTracklist.ItemsSource = Search(string.Empty);
-        private List<ITrack> Search(string searchterm) => Loopbox.LoopboxLib.GetTracksSearch(tracks, searchterm);
+        private List<Track> Search(string searchterm) => Loopbox.LoopboxLib.GetTracksSearch(tracks, searchterm);
         private void btnTrackOpen_Click(object sender, RoutedEventArgs e) => OpenTrack();
         private void listBoxTracklist_MouseDoubleClick(object sender, MouseButtonEventArgs e) => OpenTrack();
         private void OpenTrack()
         {
             if (listBoxTracklist.SelectedItem != null)
-                new TrackWindow(tracks.Find(t => t.Id.Equals((listBoxTracklist.SelectedItem as ITrack).Id))).Show();
+                new TrackWindow(tracks.Find(t => t.Id.Equals((listBoxTracklist.SelectedItem as Track).Id))).Show();
             else
                 Debug.WriteLine("No track selected.");
         }
