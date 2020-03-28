@@ -18,8 +18,8 @@ namespace Loopbox.RekordboxXML
         [XmlAttribute("Company")]
         public string company;
 
-        public string Name { get => Name; set => throw new NotImplementedException(); }
-        public string Version { get => Version; set => throw new NotImplementedException(); }
-        public string Company { get => Company; set => throw new NotImplementedException(); }
+        public string Name { get => name; set => throw new NotImplementedException(); }
+        public string Version { get => version; set => throw new NotImplementedException(); }
+        public string Company { get => company; set => throw new NotImplementedException(); }
     }
 }
