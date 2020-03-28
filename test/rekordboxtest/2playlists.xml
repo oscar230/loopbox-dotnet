@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DJ_PLAYLISTS Version="1.0.0">
+  <PRODUCT Name="rekordbox" Version="5.8.5" Company="Pioneer DJ"/>
+  <COLLECTION Entries="0">
+  </COLLECTION>
+  <PLAYLISTS>
+    <NODE Type="0" Name="ROOT" Count="2">
+      <NODE Name="__mix2" Type="1" KeyType="0" Entries="0">
+      </NODE>
+      <NODE Name="__mix3" Type="1" KeyType="0" Entries="0">
+      </NODE>
+    </NODE>
+  </PLAYLISTS>
+</DJ_PLAYLISTS>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DJ_PLAYLISTS Version="1.0.0">
+  <PRODUCT Name="rekordbox" Version="5.8.5" Company="Pioneer DJ"/>
+  <COLLECTION Entries="2954">
+    <TRACK TrackID="2462" Name="Formation (Dean E-G Remix) (Cl" Artist="Beyonce"
+           Composer="" Album="For Promotional DJ Use Only -" Grouping=""
+           Genre="House" Kind="MP3 File" Size="12916545" TotalTime="321"
+           DiscNumber="0" TrackNumber="0" Year="2016" AverageBpm="124.00"
+           DateAdded="2016-04-11" BitRate="320" SampleRate="44100" Comments="5A - Energy 8"
+           PlayCount="14" Rating="102" Location="file://localhost/D:/Users/oscar/Musicaaaaaaa/house%20tech%20deep%20tropical%20nudisco/Beyonce%20-%20Formation%20(Dean%20E-G%20Remix)%20(Clean).mp3"
+           Remixer="" Tonality="05A" Label="" Mix="">
+      <TEMPO Inizio="0.030" Bpm="124.00" Metro="4/4" Battito="1"/>
+    </TRACK>
+    <TRACK TrackID="2480" Name="Cake By The Ocean (Kue Remix)" Artist="DNCE"
+           Composer="" Album="For Promotional DJ Use Only -" Grouping=""
+           Genre="House" Kind="MP3 File" Size="9798167" TotalTime="243"
+           DiscNumber="0" TrackNumber="0" Year="2016" AverageBpm="126.00"
+           DateAdded="2016-04-11" BitRate="320" SampleRate="44100" Comments="9A - Energy 8"
+           PlayCount="31" Rating="204" Location="file://localhost/D:/Users/oscar/Musicaaaaaaa/house%20tech%20deep%20tropical%20nudisco/DNCE%20-%20Cake%20By%20The%20Ocean%20(Kue%20Remix)%20(Dirty).mp3"
+           Remixer="" Tonality="09A" Label="" Mix="">
+      <TEMPO Inizio="0.026" Bpm="126.00" Metro="4/4" Battito="1"/>
+      <TEMPO Inizio="0.503" Bpm="126.00" Metro="4/4" Battito="2"/>
+    </TRACK>
+    <TRACK TrackID="2484" Name="Something In The Way You Move (Kue Remix)"
+           Artist="Ellie Goulding" Composer="" Album="MyMP3Pool.com - For Promotional DJ Use Only - Not For Sale"
+           Grouping="" Genre="House" Kind="MP3 File" Size="11737551" TotalTime="292"
+           DiscNumber="0" TrackNumber="0" Year="2016" AverageBpm="115.00"
+           DateAdded="2016-04-11" BitRate="320" SampleRate="44100" Comments="11A - Energy 7"
+           PlayCount="6" Rating="51" Location="file://localhost/D:/Users/oscar/Musicaaaaaaa/house%20tech%20deep%20tropical%20nudisco/Ellie%20Goulding%20-%20Something%20In%20The%20Way%20You%20Move%20(Kue%20Remix.mp3"
+           Remixer="" Tonality="11A" Label="" Mix="">
+      <TEMPO Inizio="0.028" Bpm="115.00" Metro="4/4" Battito="1"/>
+    </TRACK>
+    <TRACK TrackID="2488" Name="Policeman (Dj S Nike Remix)" Artist="Eva Simons Ft Konshens"
+           Composer="" Album="MyMP3Pool - For Promotional DJ Use Only - Not For Sale"
+           Grouping="" Genre="Electro House - Big Room" Kind="MP3 File"
+           Size="10104501" TotalTime="251" DiscNumber="0" TrackNumber="0"
+           Year="2015" AverageBpm="128.00" DateAdded="2016-04-11" BitRate="320"
+           SampleRate="44100" Comments="11A - Energy 7" PlayCount="7" Rating="102"
+           Location="file://localhost/D:/Users/oscar/Musicaaaaaaa/electro/Eva%20Simons%20Ft%20Konshens%20-%20Policeman%20(Dj%20S%20Nike%20Remix).mp3"
+           Remixer="" Tonality="11A" Label="" Mix="">
+      <TEMPO Inizio="0.023" Bpm="128.00" Metro="4/4" Battito="1"/>
+    </TRACK>
+  </COLLECTION>
+  <PLAYLISTS>
+    <NODE Type="0" Name="ROOT" Count="0">
+    </NODE>
+  </PLAYLISTS>
+</DJ_PLAYLISTS>
