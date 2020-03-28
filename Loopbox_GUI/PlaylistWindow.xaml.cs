@@ -28,6 +28,7 @@ namespace Loopbox_GUI
             InitializeComponent();
             textTitle.Text = title;
             textPlaylistCount.Text = "Playlists shown: " + playlists.Count;
+            listBoxPlaylist.ItemsSource = playlists;
         }
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
     }
