@@ -24,17 +24,17 @@
                     <TextBlock Text="View Statistics" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnMeta" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMeta_Click">
+            <Button x:Name="btnMeta" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMeta_Click" IsEnabled="False">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Find Metainfo" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnAlbum" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnAlbum_Click">
+            <Button x:Name="btnAlbum" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnAlbum_Click" IsEnabled="False">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Find Album Art" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnExport" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExport_Click">
+            <Button x:Name="btnExport" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExport_Click" IsEnabled="False">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Sync Manager" FontSize="16"/>
                 </StackPanel>
