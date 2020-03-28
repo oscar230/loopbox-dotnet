@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Loopbox.Library.RekordboxXML
+namespace Loopbox.RekordboxXML
 {
     // Nodes in playlists
     [Serializable]
     [XmlRoot("NODE")]
-    public class PlaylistNode : IPlaylistNode
+    public class PlaylistNode
     {
         [XmlAttribute("Type")]
         public int type; // 0 directory, 1 playlist
@@ -26,26 +26,26 @@ namespace Loopbox.Library.RekordboxXML
         public List<PlaylistNode> nodes;
         [XmlElement("TRACK")]
         public List<Track> tracks; //Tracks by TrackId
-        private List<ITrack> _internal_tracks;
-        private List<ITrack> InternalTracks => _internal_tracks == null ? _internal_tracks = SetInternalTracks() : _internal_tracks;
-        private List<ITrack> SetInternalTracks()
+        private List<Track> _internal_tracks;
+        private List<Track> InternalTracks => _internal_tracks == null ? _internal_tracks = SetInternalTracks() : _internal_tracks;
+        private List<Track> SetInternalTracks()
         {
-            List<ITrack> tracks = new List<ITrack>();
-            foreach (ITrack track in tracks)
+            List<Track> tracks = new List<Track>();
+            foreach (Track track in tracks)
                 tracks.Add(track);
             return tracks;
         }
-        public List<ITrack> Tracks { get => InternalTracks; set => throw new NotImplementedException(); }
+        public List<Track> Tracks { get => InternalTracks; set => throw new NotImplementedException(); }
         public int Type { get => type; set => throw new NotImplementedException(); }
         public string Name { get => name; set => throw new NotImplementedException(); }
         public int Entries { get => count > 0 ? count : entries; set => throw new NotImplementedException(); }
         public int KeyType { get => keyType; set => throw new NotImplementedException(); }
-        public List<IPlaylistNode> Nodes { get => new List<IPlaylistNode>(nodes); set => throw new NotImplementedException(); }
+        public List<PlaylistNode> Nodes { get => new List<PlaylistNode>(nodes); set => throw new NotImplementedException(); }
         public bool IsDirectory { get => type == 0; set => throw new NotImplementedException(); }
         public bool IsPlaylist { get => type == 1; set => throw new NotImplementedException(); }
 
-        List<IPlaylistNode> Playlists { get {
-                var playlists = new List<IPlaylistNode>();
+        public List<PlaylistNode> Playlists { get {
+                var playlists = new List<PlaylistNode>();
                 foreach (PlaylistNode n in nodes)
                 {
                     if (n.IsPlaylist) playlists.Add(n);
@@ -54,11 +54,9 @@ namespace Loopbox.Library.RekordboxXML
                 return playlists;
             } set => throw new NotImplementedException(); }
 
-        List<IPlaylistNode> IPlaylistNode.Playlists { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        List<IPlaylistNode> Directories { get {
-                var directories = new List<IPlaylistNode>();
-                foreach (IPlaylistNode n in nodes)
+        public List<PlaylistNode> Directories { get {
+                var directories = new List<PlaylistNode>();
+                foreach (PlaylistNode n in nodes)
                 {
                     if (n.IsDirectory)
                     {
@@ -68,7 +66,5 @@ namespace Loopbox.Library.RekordboxXML
                 }
                 return directories;
             } set => throw new NotImplementedException(); }
-
-        List<IPlaylistNode> IPlaylistNode.Directories { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

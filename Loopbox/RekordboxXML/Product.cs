@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Loopbox.Library.RekordboxXML
+namespace Loopbox.RekordboxXML
 {
     [Serializable]
     [XmlRoot("PRODUCT")]
-    public class Product : IProduct
+    public class Product
     {
         [XmlAttribute("Name")]
         public string name;

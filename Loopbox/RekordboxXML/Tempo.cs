@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Loopbox.Library.RekordboxXML
+namespace Loopbox.RekordboxXML
 {
     [Serializable]
     [XmlRoot("TEMPO")]
-    public class Tempo : ITempo
+    public class Tempo
     {
         [XmlAttribute("Inizio")]
         public decimal inizio; // Beginning (Italian)

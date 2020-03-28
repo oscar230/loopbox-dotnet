@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Loopbox.Library.RekordboxXML
+namespace Loopbox.RekordboxXML
 {
     [Serializable]
     [XmlRoot("PLAYLISTS")]
-    public class Playlist : IPlaylist
+    public class Playlist
     {
         [XmlElement("NODE")]
         public List<PlaylistNode> playlistNodes; // Top of node tree is name=ROOT
-        public List<IPlaylistNode> PlaylistNodes { get => new List<IPlaylistNode>(playlistNodes); set => throw new NotImplementedException(); }
+        public List<PlaylistNode> PlaylistNodes { get => new List<PlaylistNode>(playlistNodes); set => throw new NotImplementedException(); }
     }
 }

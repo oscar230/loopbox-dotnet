@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Xml.Serialization;
 
-namespace Loopbox.Library.RekordboxXML
+namespace Loopbox.RekordboxXML
 {
     [Serializable]
     [XmlRoot("TRACK")]
-    public class Track : ITrack
+    public class Track
     {
         [XmlAttribute("TrackID")]
         public int trackId; // RekordBox index
