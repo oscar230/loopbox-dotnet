@@ -24,6 +24,11 @@
                     <TextBlock Text="View missing tracks" FontSize="16"/>
                 </StackPanel>
             </Button>
+            <Button Grid.Column="0" x:Name="btnInPlaylist" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnInPlaylist_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View tracks in any playlist" FontSize="16"/>
+                </StackPanel>
+            </Button>
             <Button Grid.Column="0" x:Name="btnInNoPlaylist" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnInNoPlaylist_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="View tracks not in any playlist" FontSize="16"/>
@@ -51,6 +56,7 @@
             <TextBlock x:Name="textPlaylistCount" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textMissingCount" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textLowQualityCount" FontSize="16" Foreground="#FF909090"/>
+            <TextBlock x:Name="textInPlaylistCount" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textNotInPlaylistCount" FontSize="16" Foreground="#FF909090"/>
         </StackPanel>
     </Grid>
