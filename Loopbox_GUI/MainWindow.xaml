@@ -39,6 +39,11 @@
                     <TextBlock Text="Sync Manager" FontSize="16"/>
                 </StackPanel>
             </Button>
+            <Button x:Name="btnHelp" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnHelp_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Help" FontSize="16"/>
+                </StackPanel>
+            </Button>
             <Button x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Exit" FontSize="16"/>

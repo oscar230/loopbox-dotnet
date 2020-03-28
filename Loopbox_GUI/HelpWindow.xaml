@@ -1,0 +1,25 @@
+﻿<Window x:Class="Loopbox_GUI.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Loopbox_GUI"
+        mc:Ignorable="d"
+        Title="Help" Height="600" Width="500" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" BorderBrush="#FF191919" BorderThickness="5">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Loopbox Help" Foreground="#FF909090" FontWeight="Bold" FontSize="22" TextAlignment="Center"/>
+            <TextBlock Text="About" Foreground="#FF909090" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
+            <TextBlock Text="This program analyses your collection of tracks and playlists in rekorbox even further." Foreground="#FF909090" FontSize="16" TextWrapping="Wrap"/>
+            <TextBlock Text="Requirements" Foreground="#FF909090" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
+            <TextBlock Text="In order to use Loopbox you need Rekordbox by Pioneer and access to Pioneer DJ gear. This program is only indended for active DJs and can in no shape or form be used without any of the above mentioned requirements. Since you can view this message it proves that you meet the system requirements. But if you want to recommend this to a friend, make sure they have Windows with .NET (dot net) installed." Foreground="#FF909090" FontSize="16" TextWrapping="Wrap"/>
+            <TextBlock Text="Tutorial" Foreground="#FF909090" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
+            <TextBlock Text="Extract your collection from Rekordox by going to FILE in the top left corner of Rekordbox and then click on EXPORT COLLECTION IN XML FORMAT. You will then be promted to store the metadata of your collection, you can store this at any location in you computer. Note that this XML file does not contain your music files, only information about them. Its not your collection, only a blueprint of your collection. This can not be used as a backup or your music but as a backup of the structure of your music, this is important. Always make regular backups of you collection by going to FILE then LIBRARY and then clicking on BACKUP LIBRARY, and always save your music files. After that, load you previously exportet xml file by using the start menu of this program. Enjoy." Foreground="#FF909090" FontSize="16" TextWrapping="Wrap"/>
+            <Button x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Close" FontSize="16"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
