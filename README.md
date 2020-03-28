@@ -7,7 +7,7 @@ Loopbox is a tool adding features for Rekordbox. Rekordbox created and maintaine
 <a href="https://www.pioneerdj.com">Pioneer Dj</a> is the leading DJ gear manufacturer and software developer in the world and has a semi-open ecosystem that many developers try to tap into. Except for being a good tool for DJs this is a great challange for software developers in terms of reverse engineering.
 # User information
 ## Download
-Stable releases of Loopbox can be <a href="https://mega.nz/#F!qr4ynCRD!39Fo9lDK7qGPGUDampoWWQ">downloded here</a>.
+Stable releases of Loopbox can be <a href="https://mega.nz/#!6yoHVRpL!fhwaLrRSBBcwJ2Mganp4nZ7R3Oe2XgI3b9nx1Pe67xE">downloded here</a>.
 ## How to use
 * Download latest release.
 * Extract zip by right clicking.
