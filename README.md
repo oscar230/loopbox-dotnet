@@ -21,3 +21,4 @@ Stable releases of Loopbox can be <a href="https://mega.nz/#F!qr4ynCRD!39Fo9lDK7
 * <b>Developers</b>: See issues and make pull request, thanks!
 * <b>DJs</b>: Please contact oscar.andersson.200@gmail.com or create an issue here on github with feedback.
 * <b>Designers</b>: All design contributions are helpful, please follow rekordbox's design.
+* <b>Testers</b>: UX assesment and unit test development, are both very helpful.
