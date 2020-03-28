@@ -78,7 +78,8 @@ namespace Loopbox_GUI
         private void HyperLinkRedirect(Hyperlink hyperlink) => HyperLinkRedirect(hyperlink.NavigateUri.ToString());
         private void HyperLinkRedirect(string url) => System.Diagnostics.Process.Start(url);
         private void btnViewAllTracks_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracks(), "All tracks in library.").Show();
-
         private void btnHelp_Click(object sender, RoutedEventArgs e) => new HelpWindow().Show();
+        private void hyperlinkGitHub_Click(object sender, RoutedEventArgs e) => HyperLinkRedirect(hyperlinkGitHub.NavigateUri.ToString());
+        private void hyperlinkDownlaod_Click(object sender, RoutedEventArgs e) => HyperLinkRedirect(hyperlinkDownlaod.NavigateUri.ToString());
     }
 }

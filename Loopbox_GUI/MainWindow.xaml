@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Loopbox" Height="440" Width="250" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" BorderBrush="#FF191919" BorderThickness="5">
+        Title="Loopbox" Height="560" Width="250" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" BorderBrush="#FF191919" BorderThickness="5">
     <Grid>
         <StackPanel>
             <TextBlock Text="Loopbox" FontSize="22" Foreground="#FF909090" TextAlignment="Center" TextDecorations="{x:Null}" FontWeight="Bold"/>
@@ -49,20 +49,33 @@
                     <TextBlock Text="Exit" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
+            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center" TextWrapping="Wrap">
                 Made in Sweden by
                 <Hyperlink x:Name="hyperlinkCredits" NavigateUri="https://oscaande.se/" Click="hyperlinkCredits_Click">
                     Oscar Andersson
                 </Hyperlink>
-            </TextBlock>
-            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
                 who has no affiliation with Pioneer.
             </TextBlock>
-            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center">
+            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center" TextWrapping="Wrap">
                 Buy Rekordbox DJ at
                 <Hyperlink x:Name="hyperlinkRekordbox" NavigateUri="https://rekordbox.com/" Click="hyperlinkRekordbox_Click">
                     rekordbox.com
                 </Hyperlink>
+            </TextBlock>
+            <TextBlock FontSize="10" Foreground="#FF909090" TextAlignment="Center" TextWrapping="Wrap">
+                The latest version of this program can be found at the download section of this proejcts
+                <Hyperlink x:Name="hyperlinkGitHub" NavigateUri="https://github.com/oscar230/loopbox" Click="hyperlinkGitHub_Click">
+                    GitHub page
+                </Hyperlink>
+                or can be
+                <Hyperlink x:Name="hyperlinkDownlaod" NavigateUri="https://mega.nz/#!6yoHVRpL!fhwaLrRSBBcwJ2Mganp4nZ7R3Oe2XgI3b9nx1Pe67xE" Click="hyperlinkDownlaod_Click">
+                    downloaded directly
+                </Hyperlink>
+                from MEGA. If you have any feedback or want to contribute, please contact via this projects
+                <Hyperlink NavigateUri="https://github.com/oscar230/loopbox" Click="hyperlinkGitHub_Click">
+                    GitHub page
+                </Hyperlink>
+                .
             </TextBlock>
         </StackPanel>
     </Grid>
