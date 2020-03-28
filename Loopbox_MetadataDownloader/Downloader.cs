@@ -13,10 +13,10 @@ namespace Loopbox_MetadataDownloader
         }
         private void SetupSources()
         {
-            sources.Add(new Discogs());
-            sources.Add(new Spotify());
-            sources.Add(new Beatport());
-            sources.Add(new Deezer());
+            sources.Add(new Discogs()); // Discogs seems sufficient add more if metadata seems a bit off
+            //sources.Add(new Spotify());
+            //sources.Add(new Beatport());
+            //sources.Add(new Deezer());
         }
     }
 }

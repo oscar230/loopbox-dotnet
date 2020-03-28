@@ -7,6 +7,7 @@ namespace Loopbox_MetadataDownloader.DataSources
 {
     class Discogs : IMetadataRetreiver
     {
+        // TODD implement discogs API https://www.discogs.com/developers/
         public FileInfo GetAlbumArt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string GetTitle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string GetArtist { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
