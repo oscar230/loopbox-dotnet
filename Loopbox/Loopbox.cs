@@ -71,7 +71,8 @@ namespace Loopbox
         public List<PlaylistNode> GetAllPlaylist(string name) => Playlists.FindAll(p => p.Name.Equals(name));
         public PlaylistNode GetPlaylist(string name) => Playlists.FindAll(p => p.Name.Equals(name)).FirstOrDefault();
         public List<PlaylistNode> GetAllDirectories() => PlaylistRoot.Directories;
-        public List<PlaylistNode> GetPlaylistsWithDuplicateTracks() => GetAllPlaylists().Where(pl => pl.Tracks.Distinct().Count() > pl.Tracks.Count()).ToList();
-        public int GetPlaylistsWithDuplicateTracksCount() => GetPlaylistsWithDuplicateTracks().Count;
+        public bool GetPlaylistHasDuplicates(PlaylistNode playlist) => playlist.tracks.GroupBy(t => t.Id).Where(gt => gt.Count() > 1).Select(gt2 => gt2.Key).Count() > 0;
+        public List<PlaylistNode> GetPlaylistsWithDuplicateTracks() => GetAllPlaylists().Where(t => GetPlaylistHasDuplicates(t)).ToList();
+        public int GetPlaylistsWithDuplicateTracksCount() => GetPlaylistsWithDuplicateTracks().Count();
     }
 }
