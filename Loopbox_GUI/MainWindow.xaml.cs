@@ -37,11 +37,11 @@ namespace Loopbox_GUI
 
         private void CheckButtonsEnabled()
         {
-            btnAlbum.IsEnabled = loopbox.IsLoaded();
-            btnExport.IsEnabled = loopbox.IsLoaded();
+            //btnAlbum.IsEnabled = loopbox.IsLoaded();
+            //btnExport.IsEnabled = loopbox.IsLoaded();
             btnLoad.IsEnabled = !loopbox.IsLoaded();
             btnStatistics.IsEnabled = loopbox.IsLoaded();
-            btnMeta.IsEnabled = loopbox.IsLoaded();
+            //btnMeta.IsEnabled = loopbox.IsLoaded();
             btnViewAllTracks.IsEnabled = loopbox.IsLoaded();
         }
         private void LoadConfig()
