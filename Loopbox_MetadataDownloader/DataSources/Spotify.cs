@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Loopbox_MetadataDownloader.DataSources
 {
-    class Beatport : IMetadataRetreiver
+    class Spotify : IMetadataRetreiver
     {
         public FileInfo GetAlbumArt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string GetTitle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
