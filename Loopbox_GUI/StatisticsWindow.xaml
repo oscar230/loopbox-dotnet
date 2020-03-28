@@ -5,29 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Loopbox_GUI"
         mc:Ignorable="d"
-        Title="Statistics View" Height="390" Width="700" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" BorderBrush="#FF191919" BorderThickness="5">
+        Title="Statistics View" Height="390" Width="600" ResizeMode="NoResize" Background="Black" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" BorderBrush="#FF191919" BorderThickness="5">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
         <StackPanel Grid.Column="0">
             <TextBlock Text="Loopbox Statistics" FontSize="22" Foreground="#FF909090" TextAlignment="Center" FontWeight="Bold"/>
-            <Button Grid.Column="0" Grid.ColumnSpan="2" x:Name="btnViewAllTracks" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnViewAllTracks_Click">
+            <Button Grid.Column="0" x:Name="btnViewAllTracks" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnViewAllTracks_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="View all tracks" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="0" Grid.ColumnSpan="2" x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
+            <Button Grid.Column="0" x:Name="btnMissing" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnMissing_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View missing tracks" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" x:Name="btnInNoPlaylist" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnInNoPlaylist_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View tracks not in any playlist" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" x:Name="btnLowQuality" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnLowQuality_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View tracks of low quality" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" x:Name="btnPlaylistsDuplicate" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" IsEnabled="False" Click="btnPlaylistsDuplicate_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View duplicates of tracks in playlists" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" x:Name="btnExit" Height="50" Background="#FF191919" Foreground="#FF909090" BorderBrush="{x:Null}" Click="btnExit_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Close" FontSize="16"/>
                 </StackPanel>
             </Button>
         </StackPanel>
-
         <StackPanel Grid.Column="2" Grid.ColumnSpan="2">
+            <TextBlock Text="Quantative data" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textTrackCount" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textPlaylistCount" FontSize="16" Foreground="#FF909090"/>
             <TextBlock x:Name="textMissingCount" FontSize="16" Foreground="#FF909090"/>

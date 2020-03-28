@@ -30,30 +30,18 @@ namespace Loopbox_GUI
 
         private void Setup()
         {
-            textTrackCount.Text = "Total number of tracks: " + loopbox.GetTracksCount();
-            textPlaylistCount.Text = "Total number of playlists: " + loopbox.GetAllPlaylistsCount();
-            textMissingCount.Text = "Number of tracks missing: " + loopbox.GetTracksNotExistsCount();
-            textLowQualityCount.Text = "Number of tracks of low quality: " + loopbox.GetTracksLowBitrateCount();
-            textNotInPlaylistCount.Text = "Number of tracks not in any playlist: " + loopbox.GetTracksNotInAnyPlaylistCount();
+            textTrackCount.Text = "Tracks in collection: " + loopbox.GetTracksCount();
+            textPlaylistCount.Text = "Playlists: " + loopbox.GetAllPlaylistsCount();
+            textMissingCount.Text = "Tracks missing: " + loopbox.GetTracksNotExistsCount();
+            textLowQualityCount.Text = "Tracks of low quality: " + loopbox.GetTracksLowBitrateCount();
+            textNotInPlaylistCount.Text = "Tracks not in any playlist: " + loopbox.GetTracksNotInAnyPlaylistCount();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e) => Close();
-
-        private void btnMissing_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnQuality_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnNoPlaylist_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnViewAllTracks_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracks(), "All tracks in library.").Show();
+        private void btnViewAllTracks_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracks(), "All tracks in collection.").Show();
+        private void btnMissing_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracksNotExists(), "Tracks missing from filesystem.").Show();
+        private void btnInNoPlaylist_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracksNotInAnyPlaylist(), "Tracks not in any playlist.").Show();
+        private void btnLowQuality_Click(object sender, RoutedEventArgs e) => new TracklistWindow(loopbox.GetTracksLowBitrate(), "Tracks of low quality.").Show();
+        private void btnPlaylistsDuplicate_Click(object sender, RoutedEventArgs e) => throw new NotImplementedException();
     }
 }
