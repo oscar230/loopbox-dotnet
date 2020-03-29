@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Loopbox.RekordboxXML;
+using Loopbox_Metadata;
 
 namespace Loopbox
 {
@@ -74,5 +75,9 @@ namespace Loopbox
         public bool GetPlaylistHasDuplicates(PlaylistNode playlist) => playlist.tracks.GroupBy(t => t.Id).Where(gt => gt.Count() > 1).Select(gt2 => gt2.Key).Count() > 0;
         public List<PlaylistNode> GetPlaylistsWithDuplicateTracks() => GetAllPlaylists().Where(t => GetPlaylistHasDuplicates(t)).ToList();
         public int GetPlaylistsWithDuplicateTracksCount() => GetPlaylistsWithDuplicateTracks().Count();
+        //
+        // METADATA DOWNLOADER
+        //
+        public bool DownloadMetadata(Track track) => new Downloader(track.Artist, track.Name).Found();
     }
 }

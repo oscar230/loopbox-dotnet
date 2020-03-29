@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6001A8B-0804-4656-828A-855AA03BF2FD}</ProjectGuid>
+    <ProjectGuid>{CF383C64-5BDA-4C0D-9865-D3BC6AD0F202}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Loopbox</RootNamespace>
-    <AssemblyName>Loopbox</AssemblyName>
+    <RootNamespace>Loopbox_Metadata</RootNamespace>
+    <AssemblyName>Loopbox_Metadata</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,56 +30,36 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>baseline_equalizer_white_18dp.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="policy.2.0.taglib-sharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
-      <HintPath>..\packages\taglib.2.1.0.0\lib\policy.2.0.taglib-sharp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="HtmlAgilityPack, Version=1.11.23.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.23\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerShell.5.ReferenceAssemblies.1.1.0\lib\net4\System.Management.Automation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="taglib-sharp, Version=2.1.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
-      <HintPath>..\packages\taglib.2.1.0.0\lib\taglib-sharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumArt\mp3.cs" />
-    <Compile Include="Loopbox.cs" />
-    <Compile Include="Meta.cs" />
+    <Compile Include="DataSources\Beatport.cs" />
+    <Compile Include="DataSources\Deezer.cs" />
+    <Compile Include="DataSources\Discogs.cs" />
+    <Compile Include="DataSources\Spotify.cs" />
+    <Compile Include="Downloader.cs" />
+    <Compile Include="IMetadataRetreiver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rekordbox.cs" />
-    <Compile Include="RekordboxXML\Collection.cs" />
-    <Compile Include="RekordboxXML\Library.cs" />
-    <Compile Include="RekordboxXML\PlaylistNode.cs" />
-    <Compile Include="RekordboxXML\Playlist.cs" />
-    <Compile Include="RekordboxXML\PositionMark.cs" />
-    <Compile Include="RekordboxXML\Product.cs" />
-    <Compile Include="RekordboxXML\Tempo.cs" />
-    <Compile Include="RekordboxXML\Track.cs" />
+    <Compile Include="WebScraper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="baseline_equalizer_white_18dp.ico" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="baseline_equalizer_white_18dp.ico" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Loopbox_Metadata\Loopbox_Metadata.csproj">
-      <Project>{cf383c64-5bda-4c0d-9865-d3bc6ad0f202}</Project>
-      <Name>Loopbox_Metadata</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

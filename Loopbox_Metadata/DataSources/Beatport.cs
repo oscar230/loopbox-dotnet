@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Loopbox_MetadataDownloader.DataSources
+namespace Loopbox_Metadata.DataSources
 {
-    class Spotify : IMetadataRetreiver
+    class Beatport : IMetadataRetreiver
     {
         public FileInfo GetAlbumArt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string GetTitle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -14,5 +14,7 @@ namespace Loopbox_MetadataDownloader.DataSources
         public decimal GetBpm { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string GetGenre { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string GetLabel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool Found => throw new NotImplementedException();
+        public DataSource GetSource => new DataSource { name = "Discogs", owner = "Zink Media", url = "www.discogs.com" };
     }
 }

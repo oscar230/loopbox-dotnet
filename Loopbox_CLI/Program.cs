@@ -21,6 +21,12 @@ namespace Loopbox_CLI
             Menu.Print(loopbox.ToString());
             Menu.PrintAttribute("Tracks in library", loopbox.GetTracksCount().ToString());
             Menu.PrintAttribute("Playlists in library", loopbox.GetAllPlaylistsCount().ToString());
+            //loopbox.DownloadMetadata(loopbox.GetTracks()[0]);
+            //loopbox.DownloadMetadata(loopbox.GetTracks()[123]);
+            //loopbox.DownloadMetadata(loopbox.GetTracks()[333]);
+            //loopbox.DownloadMetadata(loopbox.GetTracks()[1000]);
+            //loopbox.DownloadMetadata(loopbox.GetTracks()[1010]);
+            loopbox.DownloadMetadata(loopbox.GetTracks()[2000]);
             Thread.Sleep(5 * 1000);
         }
     }
