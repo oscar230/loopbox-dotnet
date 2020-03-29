@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Loopbox_MetadataDownloader
 {
-    static class WebCrawler
+    static class WebScraper
     {
+        private static GetPage()
     }
 }

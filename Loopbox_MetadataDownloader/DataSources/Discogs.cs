@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Loopbox_MetadataDownloader.DataSources
 {
-    class Discogs : IMetadataRetreiver
+    class Discogs : IMetadataRetreiver, WebScraper
     {
         // TODD implement discogs API https://www.discogs.com/developers/
         public FileInfo GetAlbumArt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

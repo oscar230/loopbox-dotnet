@@ -5,4 +5,8 @@
     <ApplicationIcon>baseline_equalizer_white_18dp.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.23" />
+  </ItemGroup>
+
 </Project>
