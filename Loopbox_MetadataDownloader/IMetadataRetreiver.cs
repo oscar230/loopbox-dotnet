@@ -4,6 +4,16 @@ using System.IO;
 
 namespace Loopbox_MetadataDownloader
 {
+    public struct Metadata
+    {
+        public FileInfo file;
+        public string title;
+        public string artist;
+        public DateTime releasedate;
+        public decimal bpm;
+        public string genre;
+        public string label;
+    }
     public interface IMetadataRetreiver
     {
         FileInfo GetAlbumArt { get; set; }
@@ -13,5 +23,6 @@ namespace Loopbox_MetadataDownloader
         decimal GetBpm { get; set; }
         string GetGenre { get; set; }
         string GetLabel { get; set; }
+        bool Found { get;  }
     }
 }
