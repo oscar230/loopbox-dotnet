@@ -84,10 +84,7 @@ namespace Loopbox
         //
         // VIRTUAL DEVICE
         //
-        public void CreateVirtualDevice(string devicename)
-        {
-            devices.Add(new Device(devicename));
-            Debug.WriteLine("Created device " + devicename + "\n\t" + devices.FirstOrDefault().ToString());
-        }
+        public void CreateVirtualDevice(string devicename) => devices.Add(new Device(devicename));
+        public void RemoveVirtualDevice(string devicename) => devices.FindAll(d => d.DeviceName.Equals(devicename)).FirstOrDefault().Destroy();
     }
 }

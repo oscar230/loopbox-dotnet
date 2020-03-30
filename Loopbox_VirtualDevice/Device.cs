@@ -20,7 +20,8 @@ namespace Loopbox_VirtualDevice
         public Device(string devicename)
         {
             this.devicename = devicename;
-            virtualdevice_directory = new DirectoryInfo(_virtualdevice_directory_base + devicename + new Random().GetHashCode());
+            virtualdevice_directory = new DirectoryInfo(Path.Combine(_virtualdevice_directory_base, devicename));
+            Directory.CreateDirectory(virtualdevice_directory.FullName);
             try
             {
                 mirror = new Mirror(virtualdevice_directory);
@@ -32,6 +33,7 @@ namespace Loopbox_VirtualDevice
                 created = false;
             }
         }
+        public void Destroy() => mirror.Destroy();
         public DirectoryInfo GetVirtualDeviceStorageDirectory { get => virtualdevice_directory; }
         public string DeviceName { get => devicename; }
         public bool DeviceExists { get => mirror != null && created; }

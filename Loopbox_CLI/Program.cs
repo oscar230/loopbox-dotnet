@@ -23,6 +23,7 @@ namespace Loopbox_CLI
             Menu.PrintAttribute("Playlists in library", loopbox.GetAllPlaylistsCount().ToString());
             loopbox.CreateVirtualDevice("debugdevice");
             Console.ReadLine();
+            loopbox.RemoveVirtualDevice("debugdevice");
         }
     }
 

@@ -21,7 +21,6 @@ namespace Loopbox_VirtualDevice
         public Mirror(DirectoryInfo directory)
         {
             this.directory = directory;
-            this.directory.Create();
             driveLetter = new DriveLetter();
             Debug.WriteLine("Mirror process initiated with target directory for virtual device (" + driveLetter.Letter + ":) at: " + directory.FullName);
         }
@@ -33,7 +32,7 @@ namespace Loopbox_VirtualDevice
             // /l driver letter
             // /m make removable device
             string program = "powershell.exe";
-            string arguments = " \"" + new DirectoryInfo(_mirror64).FullName + "\" /r \"" + directory.FullName + "\" /l " + driveLetter.Letter + " /m /d /a " + _allocation_size;
+            string arguments = " \"" + new DirectoryInfo(_mirror64).FullName + "\" /r \"" + directory.FullName + "\" /l " + driveLetter.Letter + " /m";
             Debug.WriteLine("Creating mirror.exe command: \n\t" + program + "\n\t" + arguments);
             process = ExecuteAsAdmin(program, arguments);
             process.Start();
@@ -41,9 +40,11 @@ namespace Loopbox_VirtualDevice
             return driveLetter;
         }
 
-        public void Destroy(DriveLetter driveLetter, DirectoryInfo directory)
+        public void Destroy()
         {
             process.Kill();
+            process.Close();
+            Debug.WriteLine("Destroyed process with id: " + process.Id);
         }
         private Process ExecuteAsAdmin(string program, string arguments)
         {
