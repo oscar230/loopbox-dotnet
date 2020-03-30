@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Loopbox.RekordboxXML;
 using Loopbox_Metadata;
+using Loopbox_VirtualDevice;
 
 namespace Loopbox
 {
@@ -26,6 +27,7 @@ namespace Loopbox
         public override string ToString() => IsLoaded() ? "Library loaded from " + Library.Product.Name + " veriosn " + Library.Product.Version : "No library loaded.";
         public bool Load(string filepath) => (this.rekordbox = new Rekordbox(filepath)) != null;
         public bool IsLoaded() => rekordbox != null;
+        private List<Device> devices = new List<Device>();
 
         //
         // TRACK
@@ -79,5 +81,13 @@ namespace Loopbox
         // METADATA DOWNLOADER
         //
         public bool DownloadMetadata(Track track) => new Downloader(track.Artist, track.Name).Found();
+        //
+        // VIRTUAL DEVICE
+        //
+        public void CreateVirtualDevice(string devicename)
+        {
+            devices.Add(new Device(devicename));
+            Debug.WriteLine("Created device " + devicename + "\n\t" + devices.FirstOrDefault().ToString());
+        }
     }
 }

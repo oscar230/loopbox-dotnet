@@ -80,6 +80,10 @@
       <Project>{cf383c64-5bda-4c0d-9865-d3bc6ad0f202}</Project>
       <Name>Loopbox_Metadata</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Loopbox_VirtualDevice\Loopbox_VirtualDevice.csproj">
+      <Project>{505b2504-695b-40ea-8618-4aa990ea3173}</Project>
+      <Name>Loopbox_VirtualDevice</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
