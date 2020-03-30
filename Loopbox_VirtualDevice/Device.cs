@@ -37,6 +37,7 @@ namespace Loopbox_VirtualDevice
         public DirectoryInfo GetVirtualDeviceStorageDirectory { get => virtualdevice_directory; }
         public string DeviceName { get => devicename; }
         public bool DeviceExists { get => mirror != null && created; }
+        public char DriveLetter { get => mirror.GetDriveLetter().Letter; }
         public override string ToString() => "Directory: " + virtualdevice_directory.FullName;
     }
 }

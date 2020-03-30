@@ -46,6 +46,7 @@ namespace Loopbox_VirtualDevice
             process.Close();
             Debug.WriteLine("Destroyed process with id: " + process.Id);
         }
+        public DriveLetter GetDriveLetter() => driveLetter;
         private Process ExecuteAsAdmin(string program, string arguments)
         {
             Process proc = new Process();
